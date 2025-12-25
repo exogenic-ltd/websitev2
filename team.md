@@ -14,7 +14,7 @@
 
 ## Prof. Ruwan Gopura
 - role: UoM - Dean, Graduate Studies
-- img: assets/images/team/Gopura.jpg
+- img: assets/images/team/gopura.jpg
 - link: content/team/gopura.md
 
 ## Dr. Pubudu Ranaweera
@@ -31,15 +31,15 @@
 
 ## Ms. Niseni Angammana
 - role: General Manager
-- img: assets/images/team/Niseni.jpg
+- img: assets/images/team/niseni.jpg
 - link: content/team/niseni.md
 
 ## Mr. Chulanga Malalagama
 - role: Product Manager
-- img: assets/images/team/Chulanga.jpg
+- img: assets/images/team/chulanga.jpg
 - link: content/team/chulanga.md
 
 ## Mr. Vimukthi Sooriyage
 - role: Design Engineer
-- img: assets/images/team/Vimukthi.jpg
+- img: assets/images/team/vimukthi.jpg
 - link: content/team/vimukthi.md
