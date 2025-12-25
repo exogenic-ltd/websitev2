@@ -43,7 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 6. Team Page
     if (document.getElementById('team-container')) {
-        loadAndParseMarkdownList('team.md', renderTeam);
+        if (file) {
+            // Show detail view
+            showTeamDetail(file);
+        } else {
+            // Show list view
+            loadAndParseMarkdownList('team.md', renderTeam);
+        }
+        setupBackButton('back-to-team', 'team.html');
     }
 });
 
@@ -61,6 +68,16 @@ function showProjectDetail(file) {
 function showBlogDetail(file) {
     const listView = document.getElementById('blog-list-view');
     const detailView = document.getElementById('blog-detail-view');
+    const viewer = document.getElementById('markdown-viewer');
+    
+    if (listView) listView.style.display = 'none';
+    if (detailView) detailView.style.display = 'block';
+    if (viewer) loadSingleMarkdownPost(file, viewer);
+}
+
+function showTeamDetail(file) {
+    const listView = document.getElementById('team-list-view');
+    const detailView = document.getElementById('team-detail-view');
     const viewer = document.getElementById('markdown-viewer');
     
     if (listView) listView.style.display = 'none';
@@ -301,16 +318,40 @@ function renderTeam(sections) {
         section.items.forEach(member => {
             const card = document.createElement('div');
             card.className = 'card team-card glass';
-            const img = member.meta.img || 'fa-solid fa-user';
+            const rawImg = member.meta.img || 'fa-solid fa-user';
             const borderColor = section.title === 'Advisors' ? '#555' : 'var(--primary-red)';
+            const link = member.meta.link || '#';
+            
+            // LOGIC CHANGE: Check if it's an image file or an icon class
+            let imgContent;
+            if (rawImg.includes('/') || rawImg.includes('.')) {
+                // It is a local file (e.g., images/photo.jpg)
+                imgContent = `<img src="${rawImg}" alt="${member.title}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
+            } else {
+                // It is a FontAwesome icon
+                imgContent = `<i class="${rawImg}"></i>`;
+            }
+            
+            // Check if link is a markdown file
+            const isDetailLink = link.endsWith('.md');
+            const finalLink = isDetailLink ? `team.html?file=${link}` : link;
+            
+            // Make entire card clickable if there's a link
+            if (link !== '#') {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', () => {
+                    window.location.href = finalLink;
+                });
+            }
             
             card.innerHTML = `
-                <div class="team-img" style="border-color: ${borderColor};">
-                    <i class="${img}"></i>
+                <div class="team-img" style="border-color: ${borderColor}; overflow: hidden;">
+                    ${imgContent}
                 </div>
                 <h3>${member.title}</h3>
                 <span class="role" style="${section.title === 'Advisors' ? 'color: var(--text-muted);' : ''}">${member.meta.role || 'Team Member'}</span>
                 ${member.meta.extra ? `<p style="font-size:0.9rem; color: #9ca3af; margin-top:5px;">${member.meta.extra}</p>` : ''}
+                ${link !== '#' ? `<div class="btn-text" style="margin-top: 15px;">View CV &rarr;</div>` : ''}
             `;
             grid.appendChild(card);
         });

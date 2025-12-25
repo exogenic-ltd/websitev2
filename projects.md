@@ -2,7 +2,7 @@
 
 ## Bionic Arm V2
 - icon: fa-solid fa-microscope
-- link: content/bionic-arm.md
+- link: content/projects/bionic-arm.md
 A cost-effective prosthetic solution utilizing EMG sensors to interpret muscle movements for intuitive grip control.
 
 ## Cardiac Monitor

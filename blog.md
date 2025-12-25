@@ -2,7 +2,7 @@
 
 ## The Future of Bionics in South Asia
 - date: Oct 12, 2024
-- link: content/future-bionics.md
+- link: content/blog/future-bionics.md
 Exploring how local manufacturing and 3D printing are revolutionizing access to prosthetics in the region.
 
 ## ExoGenic Wins National Innovation Award

@@ -7,12 +7,48 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .markdown-content { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            color: #e5e7eb; 
+            line-height: 1.8; 
+        }
+        .post-title { 
+            font-size: 2.5rem; 
+            margin-bottom: 10px; 
+            color: white; 
+        }
+        .post-subtitle { 
+            font-size: 1.5rem; 
+            margin-top: 40px; 
+            margin-bottom: 20px; 
+            color: #3b82f6; 
+        }
+        .post-img { 
+            width: 100%; 
+            border-radius: 12px; 
+            margin: 30px 0; 
+        }
+        .post-link { 
+            color: #ef4444; 
+            text-decoration: none; 
+        }
+        blockquote { 
+            border-left: 4px solid #3b82f6; 
+            padding: 20px; 
+            margin: 20px 0; 
+            background: rgba(59, 130, 246, 0.1); 
+            border-radius: 4px; 
+        }
+    </style>
 </head>
 <body>
 
     <div id="header-placeholder"></div>
 
-    <section class="section-padding">
+    <!-- LIST VIEW -->
+    <section id="team-list-view" class="section-padding">
         <div class="container">
             <div style="text-align: center; margin-bottom: 50px;">
                 <h1>Meet the <span class="text-gradient">Minds</span></h1>
@@ -21,6 +57,16 @@
 
             <div id="team-container">
                 <!-- Team members will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAIL VIEW -->
+    <section id="team-detail-view" class="section-padding" style="min-height: 80vh; display: none;">
+        <div class="container">
+            <a href="#" id="back-to-team" style="color: #9ca3af; text-decoration: none; margin-bottom: 30px; display: inline-block;">&larr; Back to Team</a>
+            <div id="markdown-viewer" class="markdown-content">
+                <p style="text-align: center;">Loading CV...</p>
             </div>
         </div>
     </section>

@@ -1,53 +1,45 @@
-Founders
+# Founders
 
-Mr. Harindu Bandara
+## Mr. Harindu Bandara
+- role: Co-founder and CEO
+- img: assets/images/team/harindu.jpg
+- link: content/team/harindu.md
 
-role: Co-founder and CEO
+## Mr. Manura De Silva
+- role: Co-founder and COO
+- img: assets/images/team/manura.jpg
+- link: content/team/manura.md
 
-img: fa-solid fa-user
+# Advisors
 
-Mr. Manura De Silva
+## Prof. Ruwan Gopura
+- role: UoM - Dean, Graduate Studies
+- img: assets/images/team/Gopura.jpg
+- link: content/team/gopura.md
 
-role: Co-founder and COO
+## Dr. Pubudu Ranaweera
+- role: UoM - Senior Lecturer
+- img: assets/images/team/pubudu.jpg
+- link: content/team/pubudu.md
 
-img: fa-solid fa-user
+## Mr. Kulunu Weerasoory
+- role: PhD Candidate
+- img: assets/images/team/kulunu.jpg
+- link: content/team/kulunu.md
 
-Core Team
+# Core Team
 
-Ms. Niseni Angammana
+## Ms. Niseni Angammana
+- role: General Manager
+- img: assets/images/team/Niseni.jpg
+- link: content/team/niseni.md
 
-role: General Manager
+## Mr. Chulanga Malalagama
+- role: Product Manager
+- img: assets/images/team/Chulanga.jpg
+- link: content/team/chulanga.md
 
-img: fa-solid fa-user
-
-Mr. Chulanga Malalagama
-
-role: Product Manager
-
-img: fa-solid fa-user
-
-Mr. Vimukthi Sooriyage
-
-role: Design Engineer
-
-img: fa-solid fa-user
-
-Advisors
-
-Prof. Ruwan Gopura
-
-role: UoM - Dean, Graduate Studies
-
-img: fa-solid fa-user-graduate
-
-Dr. Pubudu Ranaweera
-
-role: UoM - Senior Lecturer
-
-img: fa-solid fa-user-graduate
-
-Mr. Kulunu Weerasoory
-
-role: PhD Candidate
-
-img: fa-solid fa-user-graduate
+## Mr. Vimukthi Sooriyage
+- role: Design Engineer
+- img: assets/images/team/Vimukthi.jpg
+- link: content/team/vimukthi.md
