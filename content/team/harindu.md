@@ -1,72 +1,61 @@
 # Harindu Bandara
+![Profile](assets/images/team/harindu.jpg)
+**Mechanical Engineer**
 
-**Contact**: +94777255476 | hariadudb@gmail.com  
-**LinkedIn**: hariadu-bandara | **ORCID**: 0009-0009-3360-8980
-
----
-
-## Career Objective
 Mechanical engineer seeking opportunities to further expand knowledge and skills in R&D related to Robotics and Bioengineering.
 
----
-
-## Education
-- **Bachelor of Science in Mechanical Engineering**, University of Moratuwa (2020–2024)  
-  GPA: 3.52 | Dean's List: Semester 8
-- **CIMA Certificate Level**, Wisdom Business Academy (2019)
-- **G.C.E. Advanced Level**, Ananda College (2016–2018)
-- **G.C.E. Ordinary Level**, Vidura College (2004–2015)
+- **Email:** hariadudb@gmail.com
+- **LinkedIn:** /in/hariadu-bandara
+- **ORCID:** 0009-0009-3360-8980
 
 ---
 
 ## Professional Experience
-### Temporary Instructor, University of Moratuwa (2025)
-Department of Mechanical Engineering  
-Subjects: Biomedical Engineering, Robotics, Design of Machine Elements, Advanced Manufacturing, Mechanics of Machines
+### Temporary Instructor
+**University of Moratuwa** (2025)
+- Biomedical Engineering, Robotics, Design of Machine Elements, Advanced Manufacturing.
 
-### Visiting Instructor, University of Moratuwa (2024)
-Subjects: Control Systems, ECG, Op Amps
+### Visiting Instructor
+**University of Moratuwa** (2024)
+- Control Systems, ECG, Op Amps.
 
-### Design Engineer (Intern), Arimac Lanka (2023)
-Worked on navigation and intelligence systems for Diyazen robot using ROS, Python, C++, AI
-
----
-
-## Projects
-### Design of a Trans-radial Prosthetic Device
-Bionics Lab, University of Moratuwa  
-- Patent-pending mechanism development
-- Prototype fabrication and testing
-- Control system implementation in C++ and Python
-
-### Other Projects
-- Industrial Optimization at Lankem PLC
-- Heart-on-a-chip MEMS device design
-- Gearbox design for Jeweler’s Rolling Mill
+### Design Engineer (Intern)
+**Arimac Lanka** (2023)
+- Worked on navigation and intelligence systems for Diyazen robot using ROS, Python, C++, AI.
 
 ---
 
-## Publications
-- Bandara, G.M.H.D., et al. "Dexterous Robotic Finger with Joint-Mobility Modulation for Adaptive Grasping." MERCon 2024. (Best paper nomination)
+## Projects & Innovations
+### Trans-radial Prosthetic Device
+*Bionics Lab, University of Moratuwa*
+- Patent-pending mechanism development.
+- Prototype fabrication and testing.
+- Control system implementation (C++, Python).
+
+### Other Works
+- **Industrial Optimization** at Lankem PLC.
+- **Heart-on-a-chip** MEMS device design.
+- **Dexterous Robotic Finger**: MERCon 2024 Best Paper Nomination.
 
 ---
 
-## Skills
-- **Languages**: English (Cambridge, IELTS)
-- **Technical**: Finite Element Analysis, Control Systems, 3D Modelling, AI/ML
-- **Programming**: C++, Python, Julia, MATLAB, JavaScript
-- **Writing**: Research papers, patents, technical reports
+## Education
+### B.Sc. Mechanical Engineering
+**University of Moratuwa** (2020–2024)
+- GPA: 3.52 | Dean's List (Sem 8).
+
+### Other Qualifications
+- **CIMA Certificate Level**, Wisdom Business Academy (2019).
+- **G.C.E. A/L**, Ananda College (2016–2018).
 
 ---
 
-## Scholarships & Awards
-- University Scholarship, Ceylon Petroleum Storage Terminals Ltd. (2021–2024)
-- Academic Performance Prize, Ananda College (2019)
-- Mathematics & English Prizes, Vidura College (2015)
+## Skills & Awards
+### Technical Skills
+- **Sim/Design:** FEA, Control Systems, 3D Modelling.
+- **Coding:** C++, Python, Julia, MATLAB, JavaScript.
+- **AI/ML:** Machine Learning integration.
 
----
-
-## References
-- Prof. Ruwan Gopura, University of Moratuwa
-- Prof. Ranjith Amarasinghe, University of Moratuwa
-- Dr. Pubudu Ranaweera, University of Moratuwa
+### Awards
+- University Scholarship, Ceylon Petroleum Storage Terminals (2021–2024).
+- Academic Performance Prize, Ananda College.

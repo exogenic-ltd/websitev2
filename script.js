@@ -79,7 +79,7 @@ function showTeamDetail(file) {
     const listView = document.getElementById('team-list-view');
     const detailView = document.getElementById('team-detail-view');
     const viewer = document.getElementById('markdown-viewer');
-    
+    viewer.classList.add('cv-mode');
     if (listView) listView.style.display = 'none';
     if (detailView) detailView.style.display = 'block';
     if (viewer) loadSingleMarkdownPost(file, viewer);
@@ -140,52 +140,61 @@ async function loadSingleMarkdownPost(filename, container) {
 }
 
 function simpleMarkdownToHTML(md) {
-    let html = md;
-    
-    // Headers
-    html = html.replace(/^# (.*$)/gim, '<h1 class="post-title">$1</h1>');
-    html = html.replace(/^## (.*$)/gim, '<h2 class="post-subtitle">$1</h2>');
-    html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-    
-    // Bold
-    html = html.replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>');
-    
-    // Italic
-    html = html.replace(/\*(.*?)\*/gim, '<em>$1</em>');
-    
-    // Images (![alt](url))
-    html = html.replace(/!\[(.*?)\]\((.*?)\)/gim, '<img src="$2" alt="$1" class="post-img">');
-    
-    // Links
-    html = html.replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" class="post-link" target="_blank" rel="noopener">$1</a>');
-    
-    // Blockquotes (multi-line support)
-    html = html.replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>');
-    
-    // Code blocks (```code```)
-    html = html.replace(/```([\s\S]*?)```/gim, '<pre><code>$1</code></pre>');
-    
-    // Inline code (`code`)
-    html = html.replace(/`(.*?)`/gim, '<code>$1</code>');
-    
-    // Horizontal Rule
-    html = html.replace(/^---$/gim, '<hr style="border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">');
-    
-    // Unordered Lists
-    html = html.replace(/^\- (.*$)/gim, '<li>$1</li>');
-    html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
-    
-    // Ordered Lists
-    html = html.replace(/^\d+\. (.*$)/gim, '<li>$1</li>');
-    
-    // Paragraphs (double newline)
-    html = html.split('\n\n').map(para => {
-        // Don't wrap if it's already an HTML element
-        if (para.trim().startsWith('<')) return para;
-        return `<p>${para.trim()}</p>`;
-    }).join('\n');
-    
-    return html;
+    // 1. Split the markdown file into sections using "---" as the separator
+    // This allows you to create separate cards in your MD file.
+    const parts = md.split(/\n\s*---\s*\n/);
+
+    let finalHtml = '';
+
+    parts.forEach(part => {
+        let html = part.trim();
+        if (!html) return; // Skip empty sections
+
+        // --- Standard Markdown Regex Replacements ---
+
+        // Headers
+        html = html.replace(/^# (.*$)/gim, '<h1 class="post-title">$1</h1>');
+        html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+        html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+
+        // Bold & Italic
+        html = html.replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>');
+        html = html.replace(/\*(.*?)\*/gim, '<em>$1</em>');
+
+        // Images (![alt](url))
+        html = html.replace(/!\[(.*?)\]\((.*?)\)/gim, '<img src="$2" alt="$1" class="post-img">');
+
+        // Links
+        html = html.replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
+        // Blockquotes
+        html = html.replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>');
+
+        // Code blocks
+        html = html.replace(/```([\s\S]*?)```/gim, '<pre><code>$1</code></pre>');
+        html = html.replace(/`(.*?)`/gim, '<code>$1</code>');
+
+        // Lists (Unordered)
+        html = html.replace(/^\- (.*$)/gim, '<li>$1</li>');
+        html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
+        
+        // Lists (Ordered) - Simple support
+        html = html.replace(/^\d+\. (.*$)/gim, '<li>$1</li>');
+
+        // Paragraphs (Handle double newlines)
+        html = html.split('\n\n').map(para => {
+            para = para.trim();
+            if (!para) return '';
+            // If it starts with a tag, don't wrap in <p>
+            if (para.match(/^<(h|ul|li|bl|pre|img|div|table)/)) return para;
+            return `<p>${para}</p>`;
+        }).join('\n');
+
+        // --- Wrap the processed chunk in a Card Div ---
+        finalHtml += `<div class="detail-card">${html}</div>`;
+    });
+
+    return finalHtml;
 }
 
 // --- LIST PARSING LOGIC ---
