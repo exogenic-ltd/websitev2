@@ -280,6 +280,17 @@ function renderProjects(sections) {
         const isDetailLink = link.endsWith('.md');
         const finalLink = isDetailLink ? `projects.html?file=${link}` : link;
         
+        // Make entire card clickable if there's a link
+        if (link !== '#') {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', (e) => {
+                // Prevent double navigation if the user clicks the actual text button
+                if (e.target.tagName !== 'A') {
+                    window.location.href = finalLink;
+                }
+            });
+        }
+        
         card.innerHTML = `
             <div class="icon-box"><i class="${icon}"></i></div>
             <h3>${project.title}</h3>
@@ -339,8 +350,10 @@ function renderTeam(sections) {
             // Make entire card clickable if there's a link
             if (link !== '#') {
                 card.style.cursor = 'pointer';
-                card.addEventListener('click', () => {
-                    window.location.href = finalLink;
+                card.addEventListener('click', (e) => {
+                    if (e.target.tagName !== 'A') {
+                        window.location.href = finalLink;
+                    }
                 });
             }
             
@@ -372,9 +385,20 @@ function renderBlog(sections) {
         // Check if link is a markdown file
         const isDetailLink = link.endsWith('.md');
         const finalLink = isDetailLink ? `blog.html?file=${link}` : link;
-        
+
         const card = document.createElement('article');
         card.className = 'card glass';
+        
+        // Make entire card clickable if there's a link
+        if (link !== '#') {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', (e) => {
+                if (e.target.tagName !== 'A') {
+                    window.location.href = finalLink;
+                }
+            });
+        }
+
         card.innerHTML = `
             <span class="blog-date">${date}</span>
             <h3>${post.title}</h3>
@@ -435,6 +459,6 @@ function setupCarousel() {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
-        }, 5000);
+        }, 3500);
     }
 }
