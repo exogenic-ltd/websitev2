@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
         highlightActiveLink();
         setupScrollEffect();
         setupBackToTop();
+        setupMobileMenu();
     });
 
     // 2. Setup Carousel (Home Page)
@@ -464,5 +465,37 @@ function setupCarousel() {
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
         }, 3500);
+    }
+}
+
+function setupMobileMenu() {
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelector('.nav-links');
+    
+    // Check if nav exists and button doesn't already exist
+    if (nav && navLinks && !document.querySelector('.mobile-menu-btn')) {
+        // 1. Create the button element
+        const btn = document.createElement('div');
+        btn.className = 'mobile-menu-btn';
+        btn.innerHTML = '<i class="fa-solid fa-bars"></i>'; // FontAwesome Icon
+        
+        // 2. Add Click Event
+        btn.addEventListener('click', () => {
+            // Toggle the menu
+            navLinks.classList.toggle('active');
+            
+            // Toggle the icon between Bars and X
+            const icon = btn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // 3. Append to the nav container
+        nav.appendChild(btn);
     }
 }

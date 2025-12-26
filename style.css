@@ -510,33 +510,63 @@ footer {
 /* RESPONSIVE / MOBILE OPTIMIZATION SECTIONS */
 /* ========================================= */
 
+/* Mobile Menu Button (Hidden on Desktop) */
+.mobile-menu-btn {
+  display: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
 /* Tablet & Large Phones */
 @media (max-width: 768px) {
-  /* Reduce Padding globally */
+  /* Show the hamburger button */
+  .mobile-menu-btn { display: block; }
+
+  /* Transform Nav Links into a Dropdown */
+  .nav-links {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Push it right below the header */
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.95); /* Dark background */
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 30px 0;
+    gap: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  }
+
+  /* The class JS will add to show the menu */
+  .nav-links.active {
+    display: flex;
+    animation: slideDown 0.3s ease forwards;
+  }
+  
+  /* Animation for smooth opening */
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Adjustments for other elements */
   .section-padding { padding: 50px 0; }
   .container { padding: 0 20px; }
   
-  /* Typography Scaling */
   h1 { font-size: 2.5rem; }
   h2 { font-size: 2rem; }
-  .detail-card h1 { font-size: 2.2rem; }
-
-  /* Navigation */
-  .nav-links { display: none; } /* Standard nav hides, would need hamburger logic in JS/HTML to show */
   
-  /* Hero */
   .hero { height: 60vh; min-height: 400px; }
-  .hero-content { padding: 10px; }
-  
-  /* Buttons */
   .btn-outline { margin-left: 0; margin-top: 15px; display: inline-block; }
   
-  /* Footer & Layout */
   .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 30px; }
   .copyright-bar { flex-direction: column; gap: 15px; text-align: center; }
   .social-icons { justify-content: center; }
-  
-  /* Grid & Cards */
   .grid-3 { grid-template-columns: 1fr; gap: 20px; }
   .markdown-content { padding: 30px 15px; gap: 20px; }
   .detail-card { padding: 25px; }
@@ -544,42 +574,17 @@ footer {
 
 /* Small Phones */
 @media (max-width: 480px) {
-  /* Tighter Layout for narrow screens */
   .section-padding { padding: 40px 0; }
   .container { padding: 0 15px; }
   
-  /* Typography - Significant reduction for mobile reading */
   h1 { font-size: 2rem; line-height: 1.2; }
   h2 { font-size: 1.75rem; margin-bottom: 1rem; }
-  h3 { font-size: 1.3rem; }
-  p { font-size: 0.95rem; line-height: 1.6; }
   
-  /* Hero adjustments */
-  .hero p { font-size: 1rem; margin-bottom: 1.5rem; }
-  .logo { font-size: 1.2rem; }
-  
-  /* Card Compactness */
   .card { padding: 25px 20px; }
-  .card .icon-box { width: 50px; height: 50px; font-size: 1.2rem; margin-bottom: 15px; }
-  .card h3 { font-size: 1.3rem; }
-  
-  /* Detail View Compactness */
-  .markdown-content { padding: 20px 10px; }
-  .detail-card { padding: 20px; border-radius: 12px; }
   .detail-card h1 { font-size: 1.8rem; }
-  .detail-card:first-child { padding: 30px 15px; }
   
-  /* CV Mode Adjustments */
-  .markdown-content .detail-card:first-child li {
-    display: block;
-    margin: 8px 0;
-    font-size: 1rem;
-  }
-  .cv-mode .detail-card img {
-    width: 140px;
-    height: 140px;
-  }
+  /* Ensure menu text is large enough on small screens */
+  .nav-links a { font-size: 1.2rem; }
   
-  /* Footer */
   footer { padding: 40px 0 20px; }
 }
