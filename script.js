@@ -17,37 +17,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const file = params.get('file');
 
-    // 4. Projects Page
+    // --- PAGE SPECIFIC LOGIC ---
+
+    // A. Home Page (New Logic)
+    if (document.getElementById('home-projects-container')) {
+        loadAndParseMarkdownList('home.md', renderHome);
+    }
+
+    // B. Projects Page
     if (document.getElementById('projects-container')) {
         if (file) {
-            // Show detail view
             showProjectDetail(file);
         } else {
-            // Show list view
             loadAndParseMarkdownList('projects.md', renderProjects);
         }
         setupBackButton('back-to-projects', 'projects.html');
     }
 
-    // 5. Blog Page
+    // C. Blog Page
     if (document.getElementById('blog-container')) {
         if (file) {
-            // Show detail view
             showBlogDetail(file);
         } else {
-            // Show list view
             loadAndParseMarkdownList('blog.md', renderBlog);
         }
         setupBackButton('back-to-blog', 'blog.html');
     }
 
-    // 6. Team Page
+    // D. Team Page
     if (document.getElementById('team-container')) {
         if (file) {
-            // Show detail view
             showTeamDetail(file);
         } else {
-            // Show list view
             loadAndParseMarkdownList('team.md', renderTeam);
         }
         setupBackButton('back-to-team', 'team.html');
@@ -119,11 +120,9 @@ async function loadSingleMarkdownPost(filename, container) {
         if (!response.ok) throw new Error('File not found');
         const text = await response.text();
         
-        // Convert Markdown to HTML
         const htmlContent = simpleMarkdownToHTML(text);
         container.innerHTML = htmlContent;
         
-        // Extract H1 for document title
         const titleMatch = text.match(/^# (.*$)/m);
         if (titleMatch) {
             document.title = `${titleMatch[1]} - ExoGenic`;
@@ -140,57 +139,34 @@ async function loadSingleMarkdownPost(filename, container) {
 }
 
 function simpleMarkdownToHTML(md) {
-    // 1. Split the markdown file into sections using "---" as the separator
-    // This allows you to create separate cards in your MD file.
     const parts = md.split(/\n\s*---\s*\n/);
-
     let finalHtml = '';
 
     parts.forEach(part => {
         let html = part.trim();
-        if (!html) return; // Skip empty sections
+        if (!html) return;
 
-        // --- Standard Markdown Regex Replacements ---
-
-        // Headers
         html = html.replace(/^# (.*$)/gim, '<h1 class="post-title">$1</h1>');
         html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
         html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-
-        // Bold & Italic
         html = html.replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>');
         html = html.replace(/\*(.*?)\*/gim, '<em>$1</em>');
-
-        // Images (![alt](url))
         html = html.replace(/!\[(.*?)\]\((.*?)\)/gim, '<img src="$2" alt="$1" class="post-img">');
-
-        // Links
         html = html.replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-
-        // Blockquotes
         html = html.replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>');
-
-        // Code blocks
         html = html.replace(/```([\s\S]*?)```/gim, '<pre><code>$1</code></pre>');
         html = html.replace(/`(.*?)`/gim, '<code>$1</code>');
-
-        // Lists (Unordered)
         html = html.replace(/^\- (.*$)/gim, '<li>$1</li>');
         html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
-        
-        // Lists (Ordered) - Simple support
         html = html.replace(/^\d+\. (.*$)/gim, '<li>$1</li>');
 
-        // Paragraphs (Handle double newlines)
         html = html.split('\n\n').map(para => {
             para = para.trim();
             if (!para) return '';
-            // If it starts with a tag, don't wrap in <p>
             if (para.match(/^<(h|ul|li|bl|pre|img|div|table)/)) return para;
             return `<p>${para}</p>`;
         }).join('\n');
 
-        // --- Wrap the processed chunk in a Card Div ---
         finalHtml += `<div class="detail-card">${html}</div>`;
     });
 
@@ -207,14 +183,6 @@ async function loadAndParseMarkdownList(filename, renderCallback) {
         renderCallback(data);
     } catch (error) {
         console.error('Error loading markdown list:', error);
-        const container = document.querySelector('.grid-3');
-        if (container && !container.innerHTML.includes('Error')) {
-            container.innerHTML = `
-                <p style="color: #ef4444; text-align:center; grid-column: 1/-1;">
-                    Error loading content. Please ensure you are running this on a local server (http://localhost).
-                </p>
-            `;
-        }
     }
 }
 
@@ -228,7 +196,6 @@ function parseCustomListMarkdown(markdown) {
         const trimmed = line.trim();
         if (!trimmed) return;
 
-        // Section header (single #)
         if (trimmed.startsWith('# ') && !trimmed.startsWith('## ')) {
             if (currentItem) currentSection.items.push(currentItem);
             if (currentSection.items.length > 0 || currentSection.title) {
@@ -237,7 +204,6 @@ function parseCustomListMarkdown(markdown) {
             currentSection = { title: trimmed.substring(2).trim(), items: [] };
             currentItem = null;
         } 
-        // Item header (double ##)
         else if (trimmed.startsWith('## ')) {
             if (currentItem) currentSection.items.push(currentItem);
             currentItem = { 
@@ -246,7 +212,6 @@ function parseCustomListMarkdown(markdown) {
                 description: '' 
             };
         } 
-        // Metadata line (starts with -)
         else if (trimmed.startsWith('- ')) {
             const colonIndex = trimmed.indexOf(':');
             if (colonIndex > 0) {
@@ -255,7 +220,6 @@ function parseCustomListMarkdown(markdown) {
                 if (currentItem) currentItem.meta[key] = value;
             }
         } 
-        // Description text
         else {
             if (currentItem) {
                 currentItem.description += (currentItem.description ? ' ' : '') + trimmed;
@@ -263,7 +227,6 @@ function parseCustomListMarkdown(markdown) {
         }
     });
 
-    // Push final item and section
     if (currentItem) currentSection.items.push(currentItem);
     if (currentSection.items.length > 0 || currentSection.title) {
         sections.push(currentSection);
@@ -273,6 +236,58 @@ function parseCustomListMarkdown(markdown) {
 }
 
 // --- RENDERERS ---
+
+// New: Render Homepage Content
+function renderHome(sections) {
+    const projectContainer = document.getElementById('home-projects-container');
+    const blogContainer = document.getElementById('home-blog-container');
+    
+    sections.forEach(section => {
+        if (section.title === 'Featured Projects' && projectContainer) {
+            projectContainer.innerHTML = '';
+            section.items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card glass';
+                const link = item.meta.link || '#';
+                
+                if (link !== '#') {
+                    card.style.cursor = 'pointer';
+                    card.addEventListener('click', () => window.location.href = link);
+                }
+
+                card.innerHTML = `
+                    <div class="icon-box"><i class="${item.meta.icon || 'fa-solid fa-star'}"></i></div>
+                    <h3>${item.title}</h3>
+                    <p>${item.description}</p>
+                `;
+                projectContainer.appendChild(card);
+            });
+        }
+        else if (section.title === 'Latest Insights' && blogContainer) {
+            blogContainer.innerHTML = '';
+            section.items.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card glass';
+                const link = item.meta.link || '#';
+
+                if (link !== '#') {
+                    card.style.cursor = 'pointer';
+                    card.addEventListener('click', () => window.location.href = link);
+                }
+
+                card.innerHTML = `
+                    <span style="color: #3b82f6; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">
+                        ${item.meta.label || 'Update'}
+                    </span>
+                    <h3 style="margin: 10px 0;">${item.title}</h3>
+                    <p>${item.description}</p>
+                `;
+                blogContainer.appendChild(card);
+            });
+        }
+    });
+}
+
 function renderProjects(sections) {
     const container = document.getElementById('projects-container');
     if (!container) return;
@@ -285,15 +300,12 @@ function renderProjects(sections) {
         const card = document.createElement('div');
         card.className = 'card glass';
         
-        // Check if link is a markdown file
         const isDetailLink = link.endsWith('.md');
         const finalLink = isDetailLink ? `projects.html?file=${link}` : link;
         
-        // Make entire card clickable if there's a link
         if (link !== '#') {
             card.style.cursor = 'pointer';
             card.addEventListener('click', (e) => {
-                // Prevent double navigation if the user clicks the actual text button
                 if (e.target.tagName !== 'A') {
                     window.location.href = finalLink;
                 }
@@ -304,7 +316,6 @@ function renderProjects(sections) {
             <div class="icon-box"><i class="${icon}"></i></div>
             <h3>${project.title}</h3>
             <p>${project.description}</p>
-            ${link !== '#' ? `<a href="${finalLink}" class="btn-text">View Details &rarr;</a>` : ''}
         `;
         container.appendChild(card);
     });
@@ -316,7 +327,6 @@ function renderTeam(sections) {
     
     container.innerHTML = '';
     sections.forEach(section => {
-        // Section title
         if (section.title) {
             const title = document.createElement('h2');
             title.className = 'section-title';
@@ -328,7 +338,6 @@ function renderTeam(sections) {
             container.appendChild(title);
         }
         
-        // Grid for team members
         const grid = document.createElement('div');
         grid.className = 'grid-3';
         if (section.title === 'Founders') {
@@ -342,21 +351,16 @@ function renderTeam(sections) {
             const borderColor = section.title === 'Advisors' ? '#555' : 'var(--primary-red)';
             const link = member.meta.link || '#';
             
-            // LOGIC CHANGE: Check if it's an image file or an icon class
             let imgContent;
             if (rawImg.includes('/') || rawImg.includes('.')) {
-                // It is a local file (e.g., images/photo.jpg)
                 imgContent = `<img src="${rawImg}" alt="${member.title}" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">`;
             } else {
-                // It is a FontAwesome icon
                 imgContent = `<i class="${rawImg}"></i>`;
             }
             
-            // Check if link is a markdown file
             const isDetailLink = link.endsWith('.md');
             const finalLink = isDetailLink ? `team.html?file=${link}` : link;
             
-            // Make entire card clickable if there's a link
             if (link !== '#') {
                 card.style.cursor = 'pointer';
                 card.addEventListener('click', (e) => {
@@ -373,7 +377,6 @@ function renderTeam(sections) {
                 <h3>${member.title}</h3>
                 <span class="role" style="${section.title === 'Advisors' ? 'color: var(--text-muted);' : ''}">${member.meta.role || 'Team Member'}</span>
                 ${member.meta.extra ? `<p style="font-size:0.9rem; color: #9ca3af; margin-top:5px;">${member.meta.extra}</p>` : ''}
-                ${link !== '#' ? `<div class="btn-text" style="margin-top: 15px;">View CV &rarr;</div>` : ''}
             `;
             grid.appendChild(card);
         });
@@ -391,14 +394,12 @@ function renderBlog(sections) {
         const link = post.meta.link || '#';
         const date = post.meta.date || 'Recently';
         
-        // Check if link is a markdown file
         const isDetailLink = link.endsWith('.md');
         const finalLink = isDetailLink ? `blog.html?file=${link}` : link;
 
         const card = document.createElement('article');
         card.className = 'card glass';
         
-        // Make entire card clickable if there's a link
         if (link !== '#') {
             card.style.cursor = 'pointer';
             card.addEventListener('click', (e) => {
@@ -412,7 +413,6 @@ function renderBlog(sections) {
             <span class="blog-date">${date}</span>
             <h3>${post.title}</h3>
             <p>${post.description}</p>
-            ${link !== '#' ? `<a href="${finalLink}" class="read-more">Read Article &rarr;</a>` : ''}
         `;
         container.appendChild(card);
     });
@@ -421,12 +421,7 @@ function renderBlog(sections) {
 // --- UI HELPERS ---
 function highlightActiveLink() {
     let path = window.location.pathname.split('/').pop() || 'index.html';
-    
-    // Remove query parameters for matching
-    if (path.includes('?')) {
-        path = path.split('?')[0];
-    }
-    
+    if (path.includes('?')) path = path.split('?')[0];
     if (path === '') path = 'index.html';
     
     const navLinks = document.querySelectorAll('.nav-links a');
