@@ -1,29 +1,29 @@
 # Founders
 
 ## Mr. Harindu Bandara
-- role: Co-founder and CEO
+- role: CEO/CTO
 - img: assets/images/team/harindu.jpg
 - link: content/team/harindu.md
 
 ## Mr. Manura De Silva
-- role: Co-founder and COO
+- role: COO/CFO
 - img: assets/images/team/manura.jpg
 - link: content/team/manura.md
 
 # Advisors
 
 ## Prof. Ruwan Gopura
-- role: UoM - Dean, Graduate Studies
-- img: assets/images/team/gopura.jpg
+- role: Senior Advisor
+- img: assets/images/team/ruwan.jpg
 - link: content/team/gopura.md
 
 ## Dr. Pubudu Ranaweera
-- role: UoM - Senior Lecturer
+- role: Senior Advisor
 - img: assets/images/team/pubudu.jpg
 - link: content/team/pubudu.md
 
 ## Mr. Kulunu Weerasoory
-- role: PhD Candidate
+- role: Advisor
 - img: assets/images/team/kulunu.jpg
 - link: content/team/kulunu.md
 

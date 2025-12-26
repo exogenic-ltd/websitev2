@@ -246,12 +246,12 @@ function renderHome(sections) {
         if (section.title === 'Featured Projects' && projectContainer) {
             projectContainer.innerHTML = '';
             section.items.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'card glass';
                 const link = item.meta.link || '#';
+                const card = document.createElement('div');
+                // Added clickable class check
+                card.className = link !== '#' ? 'card glass clickable' : 'card glass';
                 
                 if (link !== '#') {
-                    card.style.cursor = 'pointer';
                     card.addEventListener('click', () => window.location.href = link);
                 }
 
@@ -266,12 +266,12 @@ function renderHome(sections) {
         else if (section.title === 'Latest Insights' && blogContainer) {
             blogContainer.innerHTML = '';
             section.items.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'card glass';
                 const link = item.meta.link || '#';
+                const card = document.createElement('div');
+                // Added clickable class check
+                card.className = link !== '#' ? 'card glass clickable' : 'card glass';
 
                 if (link !== '#') {
-                    card.style.cursor = 'pointer';
                     card.addEventListener('click', () => window.location.href = link);
                 }
 
@@ -298,13 +298,13 @@ function renderProjects(sections) {
         const icon = project.meta.icon || 'fa-solid fa-code';
         
         const card = document.createElement('div');
-        card.className = 'card glass';
+        // Added clickable class check
+        card.className = link !== '#' ? 'card glass clickable' : 'card glass';
         
         const isDetailLink = link.endsWith('.md');
         const finalLink = isDetailLink ? `projects.html?file=${link}` : link;
         
         if (link !== '#') {
-            card.style.cursor = 'pointer';
             card.addEventListener('click', (e) => {
                 if (e.target.tagName !== 'A') {
                     window.location.href = finalLink;
@@ -345,11 +345,12 @@ function renderTeam(sections) {
         }
         
         section.items.forEach(member => {
-            const card = document.createElement('div');
-            card.className = 'card team-card glass';
-            const rawImg = member.meta.img || 'fa-solid fa-user';
-            const borderColor = section.title === 'Advisors' ? '#555' : 'var(--primary-red)';
             const link = member.meta.link || '#';
+            const card = document.createElement('div');
+            // Added clickable class check
+            card.className = link !== '#' ? 'card team-card glass clickable' : 'card team-card glass';
+
+            const rawImg = member.meta.img || 'fa-solid fa-user';
             
             let imgContent;
             if (rawImg.includes('/') || rawImg.includes('.')) {
@@ -362,7 +363,6 @@ function renderTeam(sections) {
             const finalLink = isDetailLink ? `team.html?file=${link}` : link;
             
             if (link !== '#') {
-                card.style.cursor = 'pointer';
                 card.addEventListener('click', (e) => {
                     if (e.target.tagName !== 'A') {
                         window.location.href = finalLink;
@@ -371,11 +371,11 @@ function renderTeam(sections) {
             }
             
             card.innerHTML = `
-                <div class="team-img" style="border-color: ${borderColor}; overflow: hidden;">
+                <div class="team-img">
                     ${imgContent}
                 </div>
                 <h3>${member.title}</h3>
-                <span class="role" style="${section.title === 'Advisors' ? 'color: var(--text-muted);' : ''}">${member.meta.role || 'Team Member'}</span>
+                <span class="role">${member.meta.role || 'Team Member'}</span>
                 ${member.meta.extra ? `<p style="font-size:0.9rem; color: #9ca3af; margin-top:5px;">${member.meta.extra}</p>` : ''}
             `;
             grid.appendChild(card);
@@ -398,10 +398,10 @@ function renderBlog(sections) {
         const finalLink = isDetailLink ? `blog.html?file=${link}` : link;
 
         const card = document.createElement('article');
-        card.className = 'card glass';
+        // Added clickable class check
+        card.className = link !== '#' ? 'card glass clickable' : 'card glass';
         
         if (link !== '#') {
-            card.style.cursor = 'pointer';
             card.addEventListener('click', (e) => {
                 if (e.target.tagName !== 'A') {
                     window.location.href = finalLink;

@@ -1,5 +1,5 @@
 # Prof. Ruwan Gopura
-![Profile](assets/images/team/gopura.jpg)
+![Profile](assets/images/team/ruwan.jpg)
 **Senior Professor & Dean (FGS)**
 
 Department of Mechanical Engineering, University of Moratuwa. Expert in Robotics and Biomechatronics.

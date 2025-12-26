@@ -149,28 +149,18 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 
 .hero-carousel { position: absolute; inset: 0; z-index: -1; }
 
-/* Find this section in style.css and replace it */
-
 .slide {
   position: absolute;
   inset: 0;
   opacity: 0;
-  
-  /* Initial state: No zoom */
   transform: scale(1);
-  
-  /* 1. Opacity fades in/out over 1 second 
-     2. Transform (zoom) happens over 10 seconds so it moves slowly and smoothly
-  */
   transition: opacity 1s ease-in-out, transform 10s linear;
-  
   background-size: cover;
   background-position: center;
 }
 
 .slide.active { 
   opacity: 0.4; 
-  /* Target state: Zoom in to 110% */
   transform: scale(1.1);
 }
 
@@ -221,28 +211,68 @@ nav { display: flex; justify-content: space-between; align-items: center; }
   gap: 30px;
 }
 
-/* Updated: Cards are now Glass by default */
+/* --- UPDATED CARD STYLES --- */
+
+/* 1. Base Card (Static) */
 .card {
   padding: 40px 30px;
   transition: all 0.3s;
-  position: relative; /* Essential for containing the stretched link */
+  position: relative;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border);
   border-radius: 12px;
-  cursor: pointer; /* Indicates the whole card is clickable */
+  
+  /* Static cards shouldn't have pointer cursor */
+  cursor: default; 
 }
 
-/* Make the .post-link stretch to cover the entire card */
-.card .post-link::after {
-  content: '';
+/* 2. Base Card Hover (Subtle for static cards) */
+.card:hover {
+  background: var(--glass-hover);
+  /* No lift or lift very slightly for static cards */
+  transform: translateY(-2px); 
+}
+
+/* 3. Clickable Card (Interactive) */
+.card.clickable {
+  cursor: pointer; /* Restore pointer */
+}
+
+/* 4. Clickable Card Hover */
+.card.clickable:hover {
+  transform: translateY(-10px); /* Significant lift */
+  border-color: rgba(59, 130, 246, 0.6); /* Blue border glow */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* 5. Clickable Indicator (Arrow Icon) */
+.card.clickable::after {
+  content: '\f061'; /* FontAwesome arrow-right */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
   position: absolute;
-  inset: 0; /* Stretches to top, right, bottom, left: 0 */
-  z-index: 1; /* Sits above other content */
+  top: 20px;
+  right: 20px;
+  font-size: 1.2rem;
+  color: var(--blue);
+  
+  /* Initially hidden/transparent */
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
 }
 
+/* Show arrow on hover */
+.card.clickable:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 6. Top border line (Blue) - Keep for all, or restricted? */
+/* Let's keep the top blue line animation for both, it adds polish */
 .card::before {
   content: '';
   position: absolute;
@@ -257,13 +287,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 
 .card:hover::before { transform: scaleX(1); }
 
-.card:hover {
-  transform: translateY(-10px);
-  border-color: rgba(59, 130, 246, 0.5);
-  background: var(--glass-hover); /* Brighter glass on hover */
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-}
-
+/* Card Content */
 .card .icon-box {
   width: 60px;
   height: 60px;
@@ -279,7 +303,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
   border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
-.card:hover .icon-box {
+.card.clickable:hover .icon-box {
   background: rgba(59, 130, 246, 0.2);
   transform: scale(1.1);
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
@@ -307,6 +331,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 .team-img img { width: 100%; height: 100%; object-fit: cover; }
 .card.team-card { text-align: center; }
 
+/* Only animate team image for clickable cards or all? Let's do all for consistency */
 .card.team-card:hover .team-img {
   transform: scale(1.1);
   border-color: var(--blue);
@@ -412,27 +437,19 @@ footer {
 }
 
 /* Markdown Content */
-/* --- Markdown Detail View Updates --- */
-
-/* 1. The Container becomes a Grid */
 .markdown-content {
   max-width: 1000px; /* Slightly wider to fit cards */
   margin: 0 auto;
   padding: 0 20px 60px 20px;
-  
-  /* Remove old single-card styles */
   background: transparent; 
   border: none; 
   box-shadow: none; 
   backdrop-filter: none;
-
-  /* Enable Grid Layout */
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px;
 }
 
-/* 2. The Individual Cards */
 .detail-card {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(16px);
@@ -442,7 +459,7 @@ footer {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   padding: 30px;
   transition: transform 0.3s ease;
-  overflow: hidden; /* Keeps images inside rounded corners */
+  overflow: hidden;
 }
 
 .detail-card:hover {
@@ -450,15 +467,13 @@ footer {
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* 3. Special Rule: The First Card (Title/Intro) is always Full Width */
 .detail-card:first-child {
-  grid-column: 1 / -1; /* Spans all columns */
+  grid-column: 1 / -1;
   text-align: center;
   background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(0,0,0,0.2));
   padding: 50px 30px;
 }
 
-/* 4. Typography Adjustments for Cards */
 .detail-card h1 { font-size: 2.8rem; margin-bottom: 10px; border: none; }
 .detail-card h2 { font-size: 1.5rem; margin-top: 0; margin-bottom: 20px; color: var(--blue); border-bottom: 1px solid var(--border); padding-bottom: 10px; }
 .detail-card h3 { font-size: 1.2rem; color: var(--cyan); margin-top: 20px; }
@@ -466,14 +481,10 @@ footer {
 .detail-card img { max-width: 100%; border-radius: 8px; margin: 20px 0; border: 1px solid var(--border); }
 .detail-card ul { padding-left: 20px; }
 
-/* Responsive: 1 column on mobile */
+/* Responsive */
 @media (max-width: 768px) {
   .markdown-content { grid-template-columns: 1fr; }
   .detail-card { padding: 20px; }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
   h1 { font-size: 2.5rem; }
   h2 { font-size: 2rem; }
   .nav-links { display: none; }
@@ -493,44 +504,34 @@ footer {
   .markdown-content { padding: 25px 20px; }
 }
 
-/* --- CV / Team Profile Image Specifics --- */
-
-/* Only affects images inside the CV viewer */
+/* CV Mode */
 .cv-mode .detail-card img {
-  width: 200px;              /* Set a fixed small size */
-  height: 200px;             /* Match width for a perfect square/circle */
-  object-fit: cover;         /* Ensures image doesn't stretch/distort */
-  border-radius: 50%;        /* Makes it a circle (Modern Look) */
-  /* Use 'border-radius: 12px;' if you prefer a rounded square */
-  
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
   display: block;
-  margin: 0 auto 25px auto;  /* Centers the image with spacing below */
-  
-  border: 3px solid var(--blue); /* Optional: Adds a nice border */
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); /* Glow effect */
+  margin: 0 auto 25px auto;
+  border: 3px solid var(--blue);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
 }
 
-/* --- Hero Card (First Card) List Styling --- */
-
-/* 1. Target the UL in the first card */
 .markdown-content .detail-card:first-child ul {
-  list-style: none;       /* Removes the dots */
-  padding: 0;             /* Removes the indentation */
-  margin: 20px 0 0 0;     /* Adds a little space on top */
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
 }
 
-/* 2. Target the LI items to sit side-by-side */
 .markdown-content .detail-card:first-child li {
-  display: inline-block;  /* Makes them sit next to each other */
-  margin: 0 15px;         /* Adds space between items */
-  font-size: 1.1rem;      /* Make text slightly larger */
-  color: var(--blue);     /* Highlights the contact links */
+  display: inline-block;
+  margin: 0 15px;
+  font-size: 1.1rem;
+  color: var(--blue);
 }
 
-/* 3. Mobile Adjustment: Stack them vertically on small screens */
 @media (max-width: 600px) {
   .markdown-content .detail-card:first-child li {
-    display: block;       /* Stack one on top of another */
-    margin: 10px 0;       /* Space between vertically */
+    display: block;
+    margin: 10px 0;
   }
 }
