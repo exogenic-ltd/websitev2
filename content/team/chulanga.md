@@ -61,7 +61,7 @@ Mechanical engineering graduate passionate about research and innovation in biom
 
 ---
 
-## Leadership & References
+## Leadership
 ### Activities
 - **Executive Director**, IESL Student Chapter, UoM (2022–2025).
 - **Coordinator**, Bionics Laboratory & EXMO 2023.
