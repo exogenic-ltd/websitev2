@@ -66,7 +66,3 @@ Mechanical engineering graduate passionate about research and innovation in biom
 - **Executive Director**, IESL Student Chapter, UoM (2022–2025).
 - **Coordinator**, Bionics Laboratory & EXMO 2023.
 - **School Prefect** & Chess District Winner.
-
-### References
-- **Prof. Ruwan Gopura** (Dean, FGS, UoM)
-- **Dr. Pubudu Ranaweera** (Senior Lecturer, UoM)
