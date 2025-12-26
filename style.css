@@ -23,15 +23,21 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html {
+  /* Base font size adjustment for responsiveness */
+  font-size: 100%; 
+}
+
 body {
   font-family: Georgia, serif;
-  line-height: 1.7;
+  line-height: 1.6; /* Slightly reduced from 1.7 for tighter reading on small screens */
   color: var(--text);
   /* Updated: Deep Blue/Black Gradient */
   background: linear-gradient(135deg, var(--bg-start), var(--bg-end)) fixed;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden; /* Prevent horizontal scroll on mobile */
 }
 
 .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
@@ -48,9 +54,9 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4 { font-weight: 700; margin-bottom: 1rem; color: #fff; }
+h1, h2, h3, h4 { font-weight: 700; margin-bottom: 0.75rem; color: #fff; line-height: 1.2; }
 h1 { font-size: 3.5rem; letter-spacing: -1px; }
-h2 { font-size: 2.5rem; margin-bottom: 2rem; }
+h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
 h3 { font-size: 1.5rem; }
 
 code {
@@ -61,6 +67,7 @@ code {
   font-family: 'Courier New', monospace;
   font-size: 0.9em;
   border: 1px solid var(--border);
+  word-wrap: break-word; /* Prevent code breaking layout on mobile */
 }
 
 pre {
@@ -71,12 +78,13 @@ pre {
   padding: 20px;
   overflow-x: auto;
   margin: 20px 0;
+  font-size: 0.9rem; /* Slightly smaller code font */
 }
 
 pre code { background: none; padding: 0; color: #e5e7eb; border: none; }
 
-ul, ol { margin: 20px 0; }
-li { margin-bottom: 10px; color: var(--muted); }
+ul, ol { margin: 15px 0; padding-left: 20px; }
+li { margin-bottom: 8px; color: var(--muted); }
 
 /* Header */
 header {
@@ -89,11 +97,12 @@ header {
 
 /* Updated: Header is now more translucent */
 header.scrolled {
-  background: rgba(0, 0, 0, 0.5); /* Lower opacity */
+  background: rgba(0, 0, 0, 0.6); /* Slightly higher opacity for readability */
   backdrop-filter: blur(20px); /* Heavy blur */
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 10px 0; /* Shrink header on scroll */
 }
 
 nav { display: flex; justify-content: space-between; align-items: center; }
@@ -119,6 +128,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
   font-weight: 500;
   transition: all 0.3s;
   position: relative;
+  font-size: 1rem;
 }
 
 .nav-links a:hover, .nav-links a.active { color: var(--blue); }
@@ -140,11 +150,13 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 .hero {
   position: relative;
   height: 80vh;
+  min-height: 500px; /* Ensure space on small screens */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
+  padding: 0 15px;
 }
 
 .hero-carousel { position: absolute; inset: 0; z-index: -1; }
@@ -164,19 +176,20 @@ nav { display: flex; justify-content: space-between; align-items: center; }
   transform: scale(1.1);
 }
 
-.hero-content { z-index: 2; max-width: 800px; padding: 20px; }
+.hero-content { z-index: 2; max-width: 800px; padding: 20px; width: 100%; }
 .hero p { font-size: 1.25rem; color: var(--muted); margin-bottom: 2rem; }
 
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: 12px 30px;
+  padding: 12px 25px; /* Slightly reduced padding */
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s;
   border: none;
   backdrop-filter: blur(4px);
+  font-size: 1rem;
 }
 
 .btn-primary {
@@ -207,11 +220,11 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 /* Cards */
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
 }
 
-/* --- UPDATED CARD STYLES --- */
+/* --- CARD STYLES --- */
 
 /* 1. Base Card (Static) */
 .card {
@@ -224,22 +237,17 @@ nav { display: flex; justify-content: space-between; align-items: center; }
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border);
   border-radius: 12px;
-  
-  /* Static cards shouldn't have pointer cursor */
   cursor: default; 
 }
 
 /* 2. Base Card Hover (Subtle for static cards) */
 .card:hover {
   background: var(--glass-hover);
-  /* No lift or lift very slightly for static cards */
   transform: translateY(-2px); 
 }
 
 /* 3. Clickable Card (Interactive) */
-.card.clickable {
-  cursor: pointer; /* Restore pointer */
-}
+.card.clickable { cursor: pointer; }
 
 /* 4. Clickable Card Hover */
 .card.clickable:hover {
@@ -258,21 +266,15 @@ nav { display: flex; justify-content: space-between; align-items: center; }
   right: 20px;
   font-size: 1.2rem;
   color: var(--blue);
-  
-  /* Initially hidden/transparent */
   opacity: 0;
   transform: translateX(-10px);
   transition: all 0.3s ease;
 }
 
 /* Show arrow on hover */
-.card.clickable:hover::after {
-  opacity: 1;
-  transform: translateX(0);
-}
+.card.clickable:hover::after { opacity: 1; transform: translateX(0); }
 
-/* 6. Top border line (Blue) - Keep for all, or restricted? */
-/* Let's keep the top blue line animation for both, it adds polish */
+/* 6. Top border line (Blue) */
 .card::before {
   content: '';
   position: absolute;
@@ -309,7 +311,7 @@ nav { display: flex; justify-content: space-between; align-items: center; }
   box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
 }
 
-.card p { color: var(--muted); }
+.card p { color: var(--muted); font-size: 0.95rem; }
 
 /* Team */
 .team-img {
@@ -331,7 +333,6 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 .team-img img { width: 100%; height: 100%; object-fit: cover; }
 .card.team-card { text-align: center; }
 
-/* Only animate team image for clickable cards or all? Let's do all for consistency */
 .card.team-card:hover .team-img {
   transform: scale(1.1);
   border-color: var(--blue);
@@ -361,7 +362,6 @@ nav { display: flex; justify-content: space-between; align-items: center; }
 footer {
   margin-top: auto;
   border-top: 1px solid var(--border);
-  /* Updated: Glass footer */
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -376,7 +376,7 @@ footer {
 }
 
 .footer-links h4 { color: #fff; margin-bottom: 20px; }
-.footer-links ul { list-style: none; }
+.footer-links ul { list-style: none; padding-left: 0; }
 .footer-links li { margin-bottom: 10px; }
 .footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
 .footer-links a:hover { color: var(--red); }
@@ -411,7 +411,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   color: #888;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 #backToTop {
@@ -438,7 +438,7 @@ footer {
 
 /* Markdown Content */
 .markdown-content {
-  max-width: 1000px; /* Slightly wider to fit cards */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px 60px 20px;
   background: transparent; 
@@ -474,40 +474,17 @@ footer {
   padding: 50px 30px;
 }
 
-.detail-card h1 { font-size: 2.8rem; margin-bottom: 10px; border: none; }
+.detail-card h1 { font-size: 2.8rem; margin-bottom: 15px; border: none; }
 .detail-card h2 { font-size: 1.5rem; margin-top: 0; margin-bottom: 20px; color: var(--blue); border-bottom: 1px solid var(--border); padding-bottom: 10px; }
 .detail-card h3 { font-size: 1.2rem; color: var(--cyan); margin-top: 20px; }
 .detail-card p { font-size: 1rem; color: var(--muted); line-height: 1.7; margin-bottom: 15px; }
-.detail-card img { max-width: 100%; border-radius: 8px; margin: 20px 0; border: 1px solid var(--border); }
+.detail-card img { max-width: 100%; height: auto; border-radius: 8px; margin: 20px 0; border: 1px solid var(--border); }
 .detail-card ul { padding-left: 20px; }
-
-/* Responsive */
-@media (max-width: 768px) {
-  .markdown-content { grid-template-columns: 1fr; }
-  .detail-card { padding: 20px; }
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
-  .nav-links { display: none; }
-  .hero { height: 60vh; }
-  .btn-outline { margin-left: 0; margin-top: 10px; }
-  .footer-grid { grid-template-columns: 1fr; text-align: center; }
-  .copyright-bar { flex-direction: column; gap: 15px; }
-  .social-icons { justify-content: center; }
-  .section-padding { padding: 60px 0; }
-  .grid-3 { grid-template-columns: 1fr; }
-  .markdown-content { padding: 35px 25px; }
-}
-
-@media (max-width: 480px) {
-  .container { padding: 0 15px; }
-  .card { padding: 30px 20px; }
-  .markdown-content { padding: 25px 20px; }
-}
 
 /* CV Mode */
 .cv-mode .detail-card img {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 50%;
   display: block;
@@ -529,9 +506,80 @@ footer {
   color: var(--blue);
 }
 
-@media (max-width: 600px) {
+/* ========================================= */
+/* RESPONSIVE / MOBILE OPTIMIZATION SECTIONS */
+/* ========================================= */
+
+/* Tablet & Large Phones */
+@media (max-width: 768px) {
+  /* Reduce Padding globally */
+  .section-padding { padding: 50px 0; }
+  .container { padding: 0 20px; }
+  
+  /* Typography Scaling */
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  .detail-card h1 { font-size: 2.2rem; }
+
+  /* Navigation */
+  .nav-links { display: none; } /* Standard nav hides, would need hamburger logic in JS/HTML to show */
+  
+  /* Hero */
+  .hero { height: 60vh; min-height: 400px; }
+  .hero-content { padding: 10px; }
+  
+  /* Buttons */
+  .btn-outline { margin-left: 0; margin-top: 15px; display: inline-block; }
+  
+  /* Footer & Layout */
+  .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+  .copyright-bar { flex-direction: column; gap: 15px; text-align: center; }
+  .social-icons { justify-content: center; }
+  
+  /* Grid & Cards */
+  .grid-3 { grid-template-columns: 1fr; gap: 20px; }
+  .markdown-content { padding: 30px 15px; gap: 20px; }
+  .detail-card { padding: 25px; }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  /* Tighter Layout for narrow screens */
+  .section-padding { padding: 40px 0; }
+  .container { padding: 0 15px; }
+  
+  /* Typography - Significant reduction for mobile reading */
+  h1 { font-size: 2rem; line-height: 1.2; }
+  h2 { font-size: 1.75rem; margin-bottom: 1rem; }
+  h3 { font-size: 1.3rem; }
+  p { font-size: 0.95rem; line-height: 1.6; }
+  
+  /* Hero adjustments */
+  .hero p { font-size: 1rem; margin-bottom: 1.5rem; }
+  .logo { font-size: 1.2rem; }
+  
+  /* Card Compactness */
+  .card { padding: 25px 20px; }
+  .card .icon-box { width: 50px; height: 50px; font-size: 1.2rem; margin-bottom: 15px; }
+  .card h3 { font-size: 1.3rem; }
+  
+  /* Detail View Compactness */
+  .markdown-content { padding: 20px 10px; }
+  .detail-card { padding: 20px; border-radius: 12px; }
+  .detail-card h1 { font-size: 1.8rem; }
+  .detail-card:first-child { padding: 30px 15px; }
+  
+  /* CV Mode Adjustments */
   .markdown-content .detail-card:first-child li {
     display: block;
-    margin: 10px 0;
+    margin: 8px 0;
+    font-size: 1rem;
   }
+  .cv-mode .detail-card img {
+    width: 140px;
+    height: 140px;
+  }
+  
+  /* Footer */
+  footer { padding: 40px 0 20px; }
 }
