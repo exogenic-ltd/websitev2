@@ -1,4 +1,4 @@
-# Founders
+# Directors
 
 ## Mr. Harindu Bandara
 - role: CEO/CTO
