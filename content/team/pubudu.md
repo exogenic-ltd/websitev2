@@ -1,6 +1,6 @@
 # Dr. Pubudu Ranaweera
 ![Profile](assets/images/team/pubudu.jpg)
-**Senior Advisor and Co-Founder**
+**Co-Founder and Senior Advisor**
 
 Senior Lecturer
 Specialist in Biomechanics, Biorobotics, Prosthetics, and Computer Aided Engineering (FEA/CFD).

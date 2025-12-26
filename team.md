@@ -43,3 +43,8 @@
 - role: Design Engineer
 - img: assets/images/team/vimukthi.jpg
 - link: content/team/vimukthi.md
+
+## Mr. Mishen Fernando
+- role: Control Systems Engineer
+- img: assets/images/team/mishen.jpg
+- link: content/team/mishen.md
