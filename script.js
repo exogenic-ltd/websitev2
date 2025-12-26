@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+    initNetworkBackground();
     // 1. Inject Global Header and Footer
     Promise.all([
         loadHTML('header-placeholder', 'header.html'),
@@ -533,5 +533,170 @@ function setupPageTransitions() {
         if (event.persisted) {
             document.body.classList.remove('fade-out');
         }
+    });
+}
+
+// --- NETWORK BACKGROUND ANIMATION ---
+function initNetworkBackground() {
+    const canvas = document.getElementById('network-bg');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    
+    // Configuration
+    const config = {
+        particleColor: 'rgba(255, 255, 255, 1)', // Faint white dots
+        lineColor: 'rgba(59, 130, 246, 0.15)',     // Very subtle blue connections
+        particleAmount: 80,                         // Number of dots (adjust for density)
+        defaultSpeed: 0.3,                          // Very slow movement
+        variantSpeed: 0.3,                          // Random speed variance
+        linkRadius: 130,                            // Distance to connect dots
+        mouseRadius: 160                            // Distance for mouse interaction
+    };
+
+    let w, h;
+    let mouse = { x: null, y: null };
+
+    // Handle high-res displays and canvas sizing
+    function resizeCanvas() {
+        w = window.innerWidth;
+        h = window.innerHeight;
+        
+        // Get the device pixel ratio, falling back to 1
+        const dpr = window.devicePixelRatio || 1;
+        
+        // Set the actual size in memory (scaled to account for extra pixels)
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
+        
+        // Normalize coordinate system to use css pixels
+        ctx.scale(dpr, dpr);
+        
+        // Force style to match window exactly
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        
+        // Re-initialize particles if screen area changes significantly
+        if (particles.length === 0 || Math.abs(particles.length - (w * h) / 15000) > 20) {
+            initParticles();
+        }
+    }
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * w;
+            this.y = Math.random() * h;
+            this.vx = (Math.random() - 0.5) * config.defaultSpeed;
+            this.vy = (Math.random() - 0.5) * config.defaultSpeed;
+            this.size = Math.random() * 2 + 0.8; // Random size between 0.5px and 2px
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            // Bounce off edges
+            if (this.x < 0 || this.x > w) this.vx *= -1;
+            if (this.y < 0 || this.y > h) this.vy *= -1;
+
+            // Mouse interaction
+            if (mouse.x != null) {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < config.mouseRadius) {
+                    const forceDirectionX = dx / distance;
+                    const forceDirectionY = dy / distance;
+                    const force = (config.mouseRadius - distance) / config.mouseRadius;
+                    const directionX = forceDirectionX * force * 2; // Push strength
+                    const directionY = forceDirectionY * force * 2;
+
+                    this.x -= directionX;
+                    this.y -= directionY;
+                }
+            }
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = config.particleColor;
+
+            // --- ADD GLOW ---
+            ctx.shadowBlur = 20;       // Controls the "fuzziness" or size of the glow
+            ctx.shadowColor = "white"; // The color of the glow (solid white works best)
+
+            ctx.fill();
+
+            // --- RESET GLOW ---
+            // Important: Reset blur to 0 so the connecting lines 
+            // drawn later remain sharp and crisp.
+            ctx.shadowBlur = 0;
+        }
+    }
+
+    function initParticles() {
+        particles = [];
+        // Calculate density based on screen area (fewer dots on mobile)
+        const density = Math.floor((w * h) / 15000); 
+        const count = Math.min(Math.max(density, 30), 120); // Clamp between 30 and 120 particles
+        
+        for (let i = 0; i < count; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, w, h);
+
+        for (let i = 0; i < particles.length; i++) {
+            let p1 = particles[i];
+            p1.update();
+            p1.draw();
+
+            // Draw connections
+            for (let j = i; j < particles.length; j++) {
+                let p2 = particles[j];
+                let dx = p1.x - p2.x;
+                let dy = p1.y - p2.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < config.linkRadius) {
+                    ctx.beginPath();
+                    // Fade out line as distance increases
+                    let opacity = 1 - (distance / config.linkRadius);
+                    ctx.strokeStyle = config.lineColor.replace('0.15', (0.15 * opacity).toString()); 
+                    ctx.lineWidth = 0.8; // Thinner lines for subtlety
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.stroke();
+                }
+            }
+        }
+        requestAnimationFrame(animate);
+    }
+
+    // --- Event Listeners ---
+    
+    // Initial Setup
+    resizeCanvas();
+    initParticles();
+    animate();
+
+    // Resize
+    window.addEventListener('resize', resizeCanvas);
+
+    // Mouse Tracking (Viewport coordinates)
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
+
+    // Clear mouse when leaving window
+    document.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
     });
 }
