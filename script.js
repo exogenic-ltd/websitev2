@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setupScrollEffect();
         setupBackToTop();
         setupMobileMenu();
+        setupPageTransitions();
     });
 
     // 2. Setup Carousel (Home Page)
@@ -498,4 +499,39 @@ function setupMobileMenu() {
         // 3. Append to the nav container
         nav.appendChild(btn);
     }
+}
+
+function setupPageTransitions() {
+    const links = document.querySelectorAll('a');
+
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            const target = link.getAttribute('target');
+
+            if (href && 
+                !href.startsWith('#') && 
+                !href.startsWith('mailto:') && 
+                target !== '_blank') {
+
+                if (href.startsWith('http') && !href.includes(window.location.hostname)) {
+                    return; 
+                }
+
+                e.preventDefault();
+                document.body.classList.add('fade-out');
+
+                // Reduced delay to 100ms (Blink of an eye)
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 100); 
+            }
+        });
+    });
+
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            document.body.classList.remove('fade-out');
+        }
+    });
 }
