@@ -12,7 +12,6 @@ Mechanical engineering graduate passionate about research and innovation in biom
 
 ## Professional Experience
 ### Product Development Engineer – Exogenic (Pvt) Ltd
-*(Jul 2025 – Nov 2025)*
 - Development of Trans-radial Myoelectric Prosthetic Arm.
 - Cross-functional operations and administrative management.
 
