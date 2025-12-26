@@ -340,6 +340,11 @@ nav { display: flex; justify-content: space-between; align-items: center; }
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
 }
 
+.card.team-card h3 {
+  font-size: 1.2rem; /* Reduced from the global 1.5rem */
+  margin-bottom: 5px; /* Tighter spacing between name and role */
+}
+
 .role {
   color: var(--blue);
   display: block;
