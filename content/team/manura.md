@@ -1,6 +1,6 @@
 # Manura Jithmal De Silva
 ![Profile](assets/images/team/manura.jpg)
-**Co-Founder & Researcher**
+**Founder and CEO/CTO**
 
 Passionate graduate researcher with interdisciplinary experience in Biomechanics and Rehabilitation Robotics. Seeking opportunities at the intersection of Engineering, Healthcare, and Sports Science.
 

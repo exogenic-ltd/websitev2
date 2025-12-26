@@ -1,7 +1,8 @@
 # Dr. Pubudu Ranaweera
 ![Profile](assets/images/team/pubudu.jpg)
-**Senior Lecturer**
+**Senior Advisor and Co-Founder**
 
+Senior Lecturer
 Specialist in Biomechanics, Biorobotics, Prosthetics, and Computer Aided Engineering (FEA/CFD).
 
 - **Email:** pubudur@uom.lk

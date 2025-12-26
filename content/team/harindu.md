@@ -1,11 +1,11 @@
 # Harindu Bandara
 ![Profile](assets/images/team/harindu.jpg)
-**Mechanical Engineer**
+**Founder and CEO/CTO**
 
 Mechanical engineer seeking opportunities to further expand knowledge and skills in R&D related to Robotics and Bioengineering.
 
-- **Email:** hariadudb@gmail.com
-- **LinkedIn:** /in/hariadu-bandara
+- **Email:** harindudb@gmail.com
+- **LinkedIn:** /in/harindu-bandara
 - **ORCID:** 0009-0009-3360-8980
 
 ---

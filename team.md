@@ -1,12 +1,12 @@
 # Directors
 
 ## Mr. Harindu Bandara
-- role: CEO/CTO
+- role: Cheif Executive Officer
 - img: assets/images/team/harindu.jpg
 - link: content/team/harindu.md
 
 ## Mr. Manura De Silva
-- role: COO/CFO
+- role: Cheif Operating Officer
 - img: assets/images/team/manura.jpg
 - link: content/team/manura.md
 
@@ -35,7 +35,7 @@
 - link: content/team/niseni.md
 
 ## Mr. Chulanga Malalagama
-- role: Product Manager
+- role: Product Development Engineer
 - img: assets/images/team/chulanga.jpg
 - link: content/team/chulanga.md
 

@@ -1,7 +1,8 @@
 # Kulunu Weerasoory
 ![Profile](assets/images/team/kulunu.jpg)
-**PhD Candidate & Researcher**
+**Advisor and Co-Founder**
 
+PhD Candidate & Researcher
 Mechanical Engineering graduate specializing in Biomechanics, Robotics, and Control Systems. Interested in medical technology and data-driven engineering solutions.
 
 - **Email:** kulunu@ieee.org
