@@ -1,7 +1,7 @@
 # Angage Niseni Kithma Angammana
-**Mechanical Engineer**
+**General Manager**
 
-Final year Mechanical Engineering undergraduate at the University of Moratuwa, passionate about design engineering, product development, sustainability, and engineering innovation. Skilled in CAD, simulation tools, and programming with strong teamwork and communication abilities.
+Mechanical Engineering graduate from the University of Moratuwa, passionate about design engineering, product development, sustainability, and engineering innovation. Skilled in CAD, simulation tools, and programming with strong teamwork and communication abilities.
 
 - **Email:** niseniangammana@gmail.com
 - **Phone:** +94 773 232 766
