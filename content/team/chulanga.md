@@ -1,4 +1,4 @@
-# Chulanga Malalagama
+# Chulanga Induwara Malalagama
 ![Profile](assets/images/team/chulanga.jpg)
 **Product Development Engineer**
 
