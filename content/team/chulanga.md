@@ -32,20 +32,20 @@ Mechanical engineering graduate passionate about research and innovation in biom
 - **G.C.E. O/L (2015):** 9 A’s.
 
 ### Academic Experience
-- **Visiting Instructor**, University of Moratuwa (Jul–Nov 2025): Biomechanics, Biomedical Engineering, Control Systems.
+- **Visiting Instructor**, University of Moratuwa (Jul–Nov 2025): Biomechanics, Biomedical Engineering, Control Systems and Applications.
 
 ---
 
 ## Projects & Research
-### Final Year Project
+### Final Year Project at University of Moratuwa
 **Robot for Pre-hospital Treatments** (May 2024–Jul 2025)
 - Development of a robot for treating traumatic bleeding wounds.
 
-### Key Projects
+### Key Projects as an undergraduate
 - **Smart Trash Can** (Mechatronics, 2022).
 - **Piezoelectric Self-Adaptive Micro Valve** (MEMS, 2024).
 - **Reverse Engineering of High-Mount Winch** (2023).
-- **Optimization Project** for TENAX Wooden Arts (2024).
+- **Optimization Projects** for Freelan Enterprises (Pvt) Ltd (2024) and for TENAX Wooden Arts (2024).
 
 ---
 
@@ -63,6 +63,6 @@ Mechanical engineering graduate passionate about research and innovation in biom
 
 ## Leadership
 ### Activities
-- **Executive Director**, IESL Student Chapter, UoM (2022–2025).
-- **Coordinator**, Bionics Laboratory & EXMO 2023.
-- **School Prefect** & Chess District Winner.
+- **Executive Director of Operations and Current Affiars**, IESL Student Chapter, UoM (2022–2025).
+- **Coordinator**, Bionics Laboratory & EXMO Engineering Exhibition 2023.
+- **School Prefect**, Chess District Level Winner, Arts National Level Winner, School Representative and Winner at General Knowledge Quiz Competitions, Mathematics Olympiads and Model United Nation Programms.
