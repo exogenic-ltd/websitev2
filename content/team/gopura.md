@@ -1,6 +1,6 @@
 # Prof. Ruwan Gopura
 ![Profile](assets/images/team/ruwan.jpg)
-**Senior Advisor and Co-Founder**
+**Co-Founder and Senior Advisor**
 
 Senior Professor & Dean (FGS)
 Department of Mechanical Engineering, University of Moratuwa. Expert in Robotics and Biomechatronics.

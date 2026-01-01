@@ -1,6 +1,6 @@
 # Kulunu Weerasoory
 ![Profile](assets/images/team/kulunu.jpg)
-**Advisor and Co-Founder**
+**Co-Founder and Advisor**
 
 PhD Candidate & Researcher
 Mechanical Engineering graduate specializing in Biomechanics, Robotics, and Control Systems. Interested in medical technology and data-driven engineering solutions.
