@@ -1,4 +1,4 @@
-assets/images/team/vimukthi.jpg
+
 
 # Vidura Vimukthi Vishwanath Sooriyage
 
