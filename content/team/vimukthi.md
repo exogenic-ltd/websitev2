@@ -1,3 +1,5 @@
+assets/images/team/vimukthi.jpg
+
 # Vidura Vimukthi Vishwanath Sooriyage
 
 **Aspiring Mechanical Engineer | Problem-Solver | Robotics & Innovation Enthusiast**
