@@ -1,4 +1,5 @@
 ![Profile](assets/images/team/mishen.jpg)
+![WhatsApp Image 2026-01-03 at 14 46 29](https://github.com/user-attachments/assets/314e2fd7-1b66-466d-9c64-ef88ec06672e)
 
 # Mishen Vishvanath Wannakuwattawaduge Fernando
 **Control Systems Engineer**
