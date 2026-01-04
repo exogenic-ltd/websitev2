@@ -22,3 +22,4 @@ A deep dive into Electromyography (EMG) and how we use electrical signals from m
 ## Prosthetic Devices
 - date: Jan 04, 2025
 - link: content/blog/prosthetic-devices.md
+Trans-radial Prosthesis Overview
