@@ -18,6 +18,7 @@ A deep dive into Electromyography (EMG) and how we use electrical signals from m
 ## Biomechanics of Hand
 - date: Jan 04, 2025
 - link: content/blog/biomechanics-of-hand.md
+Understanding the biomechanics of human hand
 
 ## Prosthetic Devices
 - date: Jan 04, 2025
