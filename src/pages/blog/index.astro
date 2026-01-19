@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const pageTitle = "Blog - ExoGenic";
+---
+
+<BaseLayout title={pageTitle}>
+    <section class="section-padding">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h1>Latest <span class="animate-gradient-text">Insights</span></h1>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                    Updates, research findings, and stories from our engineering team.
+                </p>
+            </div>
+
+            <div class="grid-3">
+                {posts.map(post => (
+                    <article class="card glass clickable" onclick={`window.location.href='/blog/${post.slug}'`}>
+                        <span class="blog-date">{post.data.date.toISOString().split('T')[0]}</span>
+                        <h3>{post.data.title}</h3>
+                        <p>{post.data.description}</p>
+                    </article>
+                ))}
+            </div>
+        </div>
+    </section>
+</BaseLayout>
