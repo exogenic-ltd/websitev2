@@ -5,12 +5,12 @@ image: "/assets/images/team/pubudu.jpg"
 order: 4
 category: "Advisors"
 title: "Dr. Pubudu Ranaweera"
+email: "pubudur@uom.lk"
 ---
 
 Senior Lecturer
 Specialist in Biomechanics, Biorobotics, Prosthetics, and Computer Aided Engineering (FEA/CFD).
 
-- **Email:** pubudur@uom.lk
 - **Google Scholar:** R.K.P.S. Ranaweera
 
 ---
@@ -37,7 +37,9 @@ Specialist in Biomechanics, Biorobotics, Prosthetics, and Computer Aided Enginee
 - **University of Moratuwa:** Award of Excellence with Distinction (2018, 2019, 2021, 2022).
 - **Best Paper Awards:**
   - MERCon (Mechanical Systems Track) – 2016, 2017, 2018, 2019, 2021.
+  - MERCon (Mechanical Systems Track) – 2016, 2017, 2018, 2019, 2021.
   - ICITR (Tech Trends) – 2023, 2024.
+- **General Chair:** IARCE 2024.
 
 ### Professional Affiliation
 - **Associate Member**, Institute of Engineers Sri Lanka (IESL).

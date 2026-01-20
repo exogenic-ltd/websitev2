@@ -5,11 +5,11 @@ image: "/assets/images/team/mishen.jpg"
 order: 9
 category: "Core Team"
 title: "Mishen Vishvanath Wannakuwattawaduge Fernando"
+email: "mishenfernando99@gmail.com"
 ---
 
 Highly motivated and analytical mechanical engineering graduate passionate about robotics, automation, and intelligent systems. Skilled in mathematical modeling, control systems, and mechatronic product development with strong problem-solving and teamwork abilities.
 
-- **Email:** mishenfernando99@gmail.com
 - **Phone:** +94 76 702 6613
 ---
 

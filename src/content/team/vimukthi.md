@@ -5,14 +5,14 @@ image: "/assets/images/team/vimukthi.jpg"
 order: 8
 category: "Core Team"
 title: "Vidura Vimukthi Vishwanath Sooriyage"
+email: "viduravimukthi7@gmail.com"
+linkedin: "https://www.linkedin.com/in/vidura-vimukthi-vishwanath-sooriyage"
 ---
 
 **Aspiring Mechanical Engineer | Problem-Solver | Robotics & Innovation Enthusiast**
 
 📍 Homagama, Sri Lanka  
 📞 +94 72 64 53 160 | +94 75 26 03 339  
-✉️ [viduravimukthi7@gmail.com](mailto:viduravimukthi7@gmail.com)  
-🔗 [LinkedIn](https://www.linkedin.com/in/vidura-vimukthi-vishwanath-sooriyage)  
 💻 [GitHub](https://github.com/vishts)  
 🌐 [Portfolio Website](https://sites.google.com/view/vvvsooriyage)
 

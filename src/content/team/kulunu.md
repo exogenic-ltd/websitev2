@@ -5,12 +5,12 @@ image: "/assets/images/team/kulunu.jpg"
 order: 5
 category: "Advisors"
 title: "Kulunu Weerasoory"
+email: "kulunu@ieee.org"
 ---
 
 PhD Candidate & Researcher
 Mechanical Engineering graduate specializing in Biomechanics, Robotics, and Control Systems. Interested in medical technology and data-driven engineering solutions.
 
-- **Email:** kulunu@ieee.org
 - **Phone:** +94 71 064 6688
 
 ---
