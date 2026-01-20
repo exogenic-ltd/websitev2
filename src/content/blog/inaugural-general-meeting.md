@@ -2,34 +2,36 @@
 title: "Cheers to Humble Beginnings!"
 date: "2025-07-15"
 description: "ExoGenic holds its inaugural General Meeting, laying the foundation for a transformative journey in MedTech."
-image: "/assets/images/blog/general-meeting.jpg"
+image: "/assets/images/blog/inaugaral1.jpg"
 ---
 
 ## From a Garage to a Boardroom: Our Story Begins
 
-There is a specific moment when a "project" becomes a "company." For **ExoGenic**, that moment was today.
+![Inaugural Meeting](/assets/images/blog/inaugaral3.jpg)
 
-We held our inaugural **General Meeting**, a gathering that felt less like a corporate formality and more like a declaration of intent. Looking around the room at the whiteboard covered in schematics and the table full of coffee cups, we realized how far we've come.
+There exists a distinct moment when an informal collaboration transforms into a formal enterprise. For ExoGenic, that transition occurred today.
 
----
-
-### The Team Behind the Tech
-
-ExoGenic started as a shared obsession among a group of engineering students at the University of Moratuwa. We were the kids staying late to calibrate sensors, the ones arguing about kinematics over lunch.
-
-Today, that obsession has a structure. We have formalized our roles, but our spirit remains the same.
-- **The Builders:** Our mechanical wizards who turn CAD files into reality.
-- **The Coders:** The team breathing life into the silicon.
-- **The Vision:** A shared commitment to **Human-Centered Engineering**.
+We convened our inaugural General Meeting—a gathering that bore little resemblance to conventional corporate proceedings and felt more akin to a collective commitment ceremony. Surveying the room, with its whiteboard dense with circuit diagrams and table littered with coffee mugs, we recognized the distance we had traveled.
 
 ---
 
-### Why "ExoGenic"?
+### The Team Behind the Technology
 
-We didn't choose this name lightly. It represents the genesis of external enhancement—technology that doesn't just replace, but empowers.
+ExoGenic originated as a shared fixation among a cohort of engineering students at the University of Moratuwa. We were the individuals who remained in the laboratory past midnight calibrating sensors, who debated inverse kinematics over lunch, who treated technical challenges as intellectual puzzles rather than obstacles.
 
-We are entering a market dominated by giants, armed with 3D printers and a lot of ambition. But as we signed the papers today, one thing was clear: **We are ready.**
+Today, that fixation has acquired organizational structure. We have delineated responsibilities and established protocols, yet our fundamental character persists.
+- **The Mechanical Engineers:** Those who transform computational models into physical artifacts.
+- **The Software Developers:** Those who implement the intelligence that animates our devices.
+- **The Guiding Principle:** An unwavering commitment to human-centered engineering.
 
-Watch this space. We're just getting started.
+---
 
-**#ExoGenic #StartupLife #MedTech #Bionics #SriLanka #NewBeginnings**
+### The Significance of "ExoGenic"
+
+The selection of our name was deliberate. It signifies the genesis of external augmentation—technology conceived not merely to substitute for lost function, but to enhance human capability.
+
+We are entering a market dominated by established multinational corporations, equipped with little more than additive manufacturing equipment and considerable determination. Yet as we formalized our incorporation today, one reality became evident: we possess the capability to compete.
+
+This marks the beginning of our journey.
+
+![Team Selfie](/assets/images/blog/inaugaral-selfie.jpg)

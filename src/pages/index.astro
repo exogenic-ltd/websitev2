@@ -67,7 +67,7 @@ const pageTitle = "ExoGenic - Redefining Human Potential";
                 {recentProjects.map(project => (
                     <div class="card glass clickable" onclick={`window.location.href='/projects/${project.slug}'`}>
                         {project.data.image && <img src={project.data.image} alt={project.data.title} style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;" />}
-                        <div class="icon-box"><i class={project.data.icon || 'fa-solid fa-code'}></i></div>
+
                         <h3>{project.data.title}</h3>
                         <p>{project.data.description}</p>
                     </div>
@@ -90,6 +90,7 @@ const pageTitle = "ExoGenic - Redefining Human Potential";
             <div class="grid-3">
                 {recentBlogs.map(post => (
                     <article class="card glass clickable" onclick={`window.location.href='/blog/${post.slug}'`}>
+                        {post.data.image && <img src={post.data.image} alt={post.data.title} style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;" />}
                         <span class="blog-date">{post.data.date.toISOString().split('T')[0]}</span>
                         <h3>{post.data.title}</h3>
                         <p>{post.data.description}</p>

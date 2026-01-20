@@ -22,7 +22,7 @@ const pageTitle = "Innovations - ExoGenic";
                 {sortedProjects.map(project => (
                     <div class="card glass clickable" onclick={`window.location.href='/projects/${project.slug}'`}>
                         {project.data.image && <img src={project.data.image} alt={project.data.title} style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;" />}
-                        <div class="icon-box"><i class={project.data.icon || 'fa-solid fa-code'}></i></div>
+
                         <h3>{project.data.title}</h3>
                         <p>{project.data.description}</p>
                     </div>

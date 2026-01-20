@@ -2,31 +2,29 @@
 title: "Wisdom from a Titan: Dr. Bandula Wijay"
 date: "2025-08-06"
 description: " Gaining inspiration from the inventor of the vascular stent on medical device development and entrepreneurship."
-image: "/assets/images/blog/dr-wijay.jpg"
+image: "/assets/images/blog/dr-wijay-real.jpg"
 ---
 
 ## Standing on the Shoulders of Giants
 
-Every industry has its titans. In the world of medical devices, **Dr. Bandula Wijay** is one of them. The inventor of the **Nested-Loop vascular stent**, his work has quite literally kept millions of hearts beating.
+Every field has its luminaries. In medical device innovation, Dr. Bandula Wijay occupies such a position. The inventor of the nested-loop vascular stent, his work has contributed to the survival of millions of cardiac patients worldwide.
 
-Recently, we had the profound honor of hosting Dr. Wijay for an intimate session with our engineering team.
+Recently, we had the considerable privilege of hosting Dr. Wijay for an extended session with our engineering team.
 
 ---
 
 ### The Innovation Mindset
 
-Dr. Wijay didn't just talk about patents or FDA approvals. He spoke about the philosophy of invention. He recounted his early days in the USA, founding company after company, often facing skepticism.
+Dr. Wijay's discussion transcended the mechanics of patent prosecution or regulatory approval. He addressed the fundamental philosophy of invention, recounting his early career in the United States, where he founded multiple ventures while confronting persistent skepticism.
 
-His message to us was clear: **"Innovation starts with empathy."** You don't build a medical device because it's "cool" engineering. You build it because a patient is suffering, and the current standard of care isn't good enough.
+His central message resonated clearly: innovation must originate from empathy. Medical devices are not developed because they represent interesting engineering challenges. They are developed because patients are suffering, and existing therapeutic options prove inadequate.
 
 ---
 
 ### A Challenge to ExoGenic
 
-For a young Sri Lankan startup, Dr. Wijay represents what is possible. He is living proof that geography is not a barrier to global impact.
+For a nascent Sri Lankan enterprise, Dr. Wijay exemplifies what remains achievable. He demonstrates conclusively that geographic location need not constrain global impact.
 
-He challenged us to think bigger. "Don't just build a cheaper prosthetic," he urged. "Build a *better* one. Build something that the rest of the world wants to copy."
+He challenged us to expand our ambitions. "Do not simply build a more affordable prosthetic," he emphasized. "Build a superior one. Build something that international competitors will seek to emulate."
 
-We are taking that challenge to heart. The road from a university lab to a global medical device company is long, but with mentors like Dr. Wijay lighting the path, we know where we are going.
-
-**#BiomedicalEngineering #Innovation #Entrepreneurship #RoleModel #ExoGenic**
+We have internalized that challenge. The trajectory from university laboratory to global medical device manufacturer is extensive, but with mentors like Dr. Wijay illuminating the path, our direction is clear.

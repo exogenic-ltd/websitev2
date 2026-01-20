@@ -100,22 +100,30 @@ h4 {
   line-height: 1.2;
 }
 
-/* Updated: Animated Gradient Text (Subtle) */
-.animate-gradient-text {
-  /* Using softer blues, purples and white for a more subtle "shimmer" */
-  background: linear-gradient(to right, #60a5fa, #e879f9, #3b82f6, #ffffff, #60a5fa);
-  background-size: 200% auto;
+/* Updated: Uniform, Subtle, Slow Gradient Text */
+.animate-gradient-text,
+.text-gradient {
+  background: linear-gradient(120deg, #22d3ee, #60a5fa, #818cf8, #c084fc, #f472b6, #22d3ee);
+  /* Cyan -> Blue -> Indigo -> Purple -> Pink -> Loop */
+  background-size: 400% 400%;
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientAny 8s linear infinite;
-  /* Slower animation for subtlety */
+  animation: gradientFlow 15s ease infinite;
 }
 
-@keyframes gradientAny {
-  to {
-    background-position: 200% center;
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }
 

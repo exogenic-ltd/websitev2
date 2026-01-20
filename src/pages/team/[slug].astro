@@ -20,7 +20,7 @@ const { Content } = await entry.render();
                 <a href="/team" style="color: #3b82f6; text-decoration: none;">&larr; Back to Team</a>
             </div>
             
-            <div class="detail-card glass cv-mode" style="padding: 40px;">
+            <div class="detail-card glass cv-mode" style="padding: 40px; max-width: 850px; margin: 0 auto 40px auto;">
                 <div style="display:flex; flex-wrap:wrap; gap:30px; align-items: flex-start;">
                     {entry.data.image && 
                         <img src={entry.data.image} alt={entry.data.name} class="profile-large" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 3px solid #3b82f6;" />
