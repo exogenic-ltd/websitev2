@@ -5,6 +5,8 @@ image: "/assets/images/team/manura.jpg"
 order: 2
 category: "Directors"
 title: "Manura Jithmal De Silva"
+email: "manurajithmal@gmail.com"
+linkedin: "https://www.linkedin.com/in/manurajithmal"
 ---
 
 **Founder and CEO/CTO**
@@ -12,7 +14,7 @@ title: "Manura Jithmal De Silva"
 Passionate graduate researcher with interdisciplinary experience in Biomechanics and Rehabilitation Robotics. Seeking opportunities at the intersection of Engineering, Healthcare, and Sports Science.
 
 - **Portfolio:** manuradesilva.myportfolio.com
-- **Email:** manurajithmal@gmail.com
+
 
 ---
 
@@ -60,5 +62,10 @@ Passionate graduate researcher with interdisciplinary experience in Biomechanics
 
 ### Selected Publications
 - **Journal:** *Injury* (2023) – Review on circular external fixators.
-- **Conference:** ICORR 2019, ICITR 2023, MERCon 2024.
-- **Patents:** Wire Clamping Mechanism (2024), Joint-Mobility Manipulation (2025).
+- **Conference:**
+  - *MERCon 2024:* Dexterous Robotic Finger, Stair Recognition for Exoskeletons, Mobility Device Transfer.
+  - *ICITR 2023:* Robotic Hand for Wrist/Finger Rehab.
+  - *ICORR 2019:* ChairX Exoskeleton Chair.
+- **Patents (Pending):**
+  - Wire Clamping Mechanism for Circular External Fixators (2024).
+  - Pin and Socket-Based Joint-Mobility Manipulation (2025).

@@ -5,18 +5,19 @@ image: "/assets/images/team/chulanga.jpg"
 order: 7
 category: "Core Team"
 title: "Chulanga Induwara Malalagama"
+email: "chulangainduwara@gmail.com"
+linkedin: "https://www.linkedin.com/in/chulanga-malalagama"
 ---
 
 Mechanical engineering graduate passionate about research and innovation in biomechanics, robotics, and medical device development. Strong skills in analytical design and system integration.
 
-- **Email:** chulangainduwara@gmail.com
 - **GitHub:** github.com/ChulangaMalalagama
-- **LinkedIn:** linkedin.com/in/chulanga-malalagama
 
 ---
 
 ## Professional Experience
 ### Product Development Engineer – Exogenic (Pvt) Ltd
+*(July 2025 – Nov 2025)*
 - Development of Trans-radial Myoelectric Prosthetic Arm.
 - Cross-functional operations and administrative management.
 
@@ -48,6 +49,7 @@ Mechanical engineering graduate passionate about research and innovation in biom
 
 ### Key Projects as an undergraduate
 - **Smart Trash Can** (Mechatronics, 2022).
+- **Robotics Project** (2025): Robot building with Autonomous Line following, Obstacle Avoidance, Wall Following, and Manual Control capabilities.
 - **Piezoelectric Self-Adaptive Micro Valve** (MEMS, 2024).
 - **Reverse Engineering of High-Mount Winch** (2023).
 - **Optimization Projects** for Freelan Enterprises (Pvt) Ltd (2024) and for TENAX Wooden Arts (2024).

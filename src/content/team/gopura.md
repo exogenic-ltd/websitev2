@@ -5,19 +5,19 @@ image: "/assets/images/team/ruwan.jpg"
 order: 3
 category: "Advisors"
 title: "Prof. Ruwan Gopura"
+email: "gopurar@uom.lk"
 ---
 
 Senior Professor & Dean (FGS)
 Department of Mechanical Engineering, University of Moratuwa. Expert in Robotics and Biomechatronics.
 
-- **Email:** gopurar@uom.lk
 - **Google Scholar:** Citations: 3141 | h-index: 25
 
 ---
 
 ## Career & Leadership
 ### Current Roles
-- **Dean**, Faculty of Graduate Studies (Jan 2024–Present).
+- **Dean**, Faculty of Graduate Studies (2024–Present).
 - **Senior Professor**, Dept of Mechanical Engineering.
 - **Head**, Dept of Medical Technology (2021–Present).
 

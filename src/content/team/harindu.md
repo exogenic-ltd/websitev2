@@ -5,19 +5,23 @@ image: "/assets/images/team/harindu.jpg"
 order: 1
 category: "Directors"
 title: "Harindu Bandara"
+email: "harindudb@gmail.com"
+linkedin: "https://www.linkedin.com/in/harindu-bandara"
+orcid: "0009-0009-3360-8980"
 ---
 
 **Founder and CEO/CTO**
 
-Mechanical engineer seeking opportunities to further expand knowledge and skills in R&D related to Robotics and Bioengineering.
-
-- **Email:** harindudb@gmail.com
-- **LinkedIn:** /in/harindu-bandara
-- **ORCID:** 0009-0009-3360-8980
+Mechanical engineer seeking opportunities to further expand knowledge and skills in R&D related to Robotics and Bioengineering. Currently an M.Sc. student at TUM specializing in Mechatronics, Bionics and Robotics.
 
 ---
 
 ## Professional Experience
+### Candidate & Member
+**TUM Venture Labs / Enhands** (2025–Present)
+- Member of Enhands.
+- Candidate at TUM Venture Labs.
+
 ### Temporary Instructor
 **University of Moratuwa** (2025)
 - Biomedical Engineering, Robotics, Design of Machine Elements, Advanced Manufacturing.
@@ -47,6 +51,10 @@ Mechanical engineer seeking opportunities to further expand knowledge and skills
 ---
 
 ## Education
+### M.Sc. Mechatronics, Robotics & Biomechanical Engineering
+**Technical University of Munich** (2025–Present)
+- Candidate at TUM Venture Labs.
+
 ### B.Sc. Mechanical Engineering
 **University of Moratuwa** (2020–2024)
 - GPA: 3.52 | Dean's List (Sem 8).
