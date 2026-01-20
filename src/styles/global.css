@@ -1,0 +1,978 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:wght@300;400;700&display=swap');
+
+/* Variables */
+:root {
+  /* Updated: Deep Black to Dark Blue gradient colors */
+  --bg-start: #000000;
+  --bg-end: #0f172a;
+  /* Dark Slate Blue */
+
+  --blue: #3b82f6;
+  --red: #ef4444;
+  --purple: #8b5cf6;
+  --cyan: #06b6d4;
+
+  /* Updated: Glass variables for better translucency */
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-hover: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.15);
+  /* Slightly more visible border for glass edge */
+
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --max-width: 1200px;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Base font size adjustment for responsiveness */
+  font-size: 100%;
+  background-color: #000000;
+}
+
+body {
+  font-family: Georgia, serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--bg-start), var(--bg-end)) fixed;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Network Background Canvas */
+#network-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ensure all content sits above the canvas */
+header,
+.hero,
+section,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.section-padding {
+  padding: 100px 0;
+}
+
+/* Updated: Enhanced Glass effect class */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #fff;
+  line-height: 1.2;
+}
+
+/* Updated: Uniform, Subtle, Slow Gradient Text */
+.animate-gradient-text,
+.text-gradient {
+  background: linear-gradient(120deg, #22d3ee, #60a5fa, #818cf8, #c084fc, #f472b6, #22d3ee);
+  /* Cyan -> Blue -> Indigo -> Purple -> Pink -> Loop */
+  background-size: 400% 400%;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 15s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Brand Gradient (Header) - Red/Blue/White */
+.brand-gradient-text {
+  background: linear-gradient(to right, #ef4444, #ffffff, #3b82f6, #ef4444);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientBrand 3s linear infinite;
+  font-weight: 800;
+  /* Extra bold for logo */
+}
+
+@keyframes gradientBrand {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Heartbeat Animation for Footer */
+.heartbeat {
+  display: inline-block;
+  animation: heartbeat 1.5s ease-in-out infinite;
+  color: #ef4444;
+  /* Default red */
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+
+  14% {
+    transform: scale(1.3);
+  }
+
+  28% {
+    transform: scale(1);
+  }
+
+  42% {
+    transform: scale(1.3);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+}
+
+/* Footer Signature Glow */
+.footer-signature {
+  font-weight: 600;
+  background: linear-gradient(to right, #3b82f6, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.3s ease;
+}
+
+.footer-signature:hover {
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+h1 {
+  font-size: 3.5rem;
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+code {
+  background: rgba(0, 0, 0, 0.5);
+  /* Darker background for contrast */
+  color: #fbbf24;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+  border: 1px solid var(--border);
+  word-wrap: break-word;
+  /* Prevent code breaking layout on mobile */
+}
+
+pre {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  overflow-x: auto;
+  margin: 20px 0;
+  font-size: 0.9rem;
+  /* Slightly smaller code font */
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  color: #e5e7eb;
+  border: none;
+}
+
+ul,
+ol {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 8px;
+  color: var(--muted);
+}
+
+/* Header */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 15px 0;
+  transition: all 0.3s;
+}
+
+/* Updated: Header is now more translucent */
+header.scrolled {
+  background: rgba(0, 0, 0, 0.6);
+  /* Slightly higher opacity for readability */
+  backdrop-filter: blur(20px);
+  /* Heavy blur */
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 10px 0;
+  /* Shrink header on scroll */
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font: 700 1.5rem 'Inria Serif', serif;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.3s;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo i {
+  color: var(--red);
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+  transition: all 0.3s;
+  position: relative;
+  font-size: 1rem;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--blue);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: var(--red);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 80vh;
+  min-height: 500px;
+  /* Ensure space on small screens */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 0 15px;
+  background-color: #000000;
+}
+
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 1s ease-in-out, transform 10s linear;
+  background-size: cover;
+  background-position: center;
+}
+
+.slide.active {
+  opacity: 0.4;
+  transform: scale(1.1);
+}
+
+.hero-content {
+  z-index: 2;
+  max-width: 800px;
+  padding: 20px;
+  width: 100%;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  /* Slightly reduced padding */
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: none;
+  backdrop-filter: blur(4px);
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.8), rgba(37, 99, 235, 0.8));
+  color: white;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+  background: linear-gradient(90deg, var(--blue), #2563eb);
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  border: 1px solid var(--red);
+  margin-left: 15px;
+}
+
+.btn-outline:hover {
+  background: var(--red);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+/* Cards */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* --- CARD STYLES --- */
+
+/* 1. Base Card (Static) */
+.card {
+  padding: 40px 30px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: default;
+}
+
+/* 2. Base Card Hover (Subtle for static cards) */
+.card:hover {
+  background: var(--glass-hover);
+  transform: translateY(-2px);
+}
+
+/* 3. Clickable Card (Interactive) */
+.card.clickable {
+  cursor: pointer;
+}
+
+/* 4. Clickable Card Hover */
+.card.clickable:hover {
+  transform: translateY(-10px);
+  /* Significant lift */
+  border-color: rgba(59, 130, 246, 0.6);
+  /* Blue border glow */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* 5. Clickable Indicator (Arrow Icon) */
+.card.clickable::after {
+  content: '\f061';
+  /* FontAwesome arrow-right */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.2rem;
+  color: var(--blue);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+/* Show arrow on hover */
+.card.clickable:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 6. Top border line (Blue) */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--blue);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Card Content */
+.card .icon-box {
+  width: 60px;
+  height: 60px;
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: var(--blue);
+  transition: all 0.3s;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.card.clickable:hover .icon-box {
+  background: rgba(59, 130, 246, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Team */
+.team-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--red);
+  overflow: hidden;
+  font-size: 2.5rem;
+  color: var(--muted);
+  transition: all 0.3s;
+}
+
+.team-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card.team-card {
+  text-align: center;
+}
+
+.card.team-card:hover .team-img {
+  transform: scale(1.1);
+  border-color: var(--blue);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.card.team-card h3 {
+  font-size: 1.2rem;
+  /* Reduced from the global 1.5rem */
+  margin-bottom: 5px;
+  /* Tighter spacing between name and role */
+}
+
+.role {
+  color: var(--blue);
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Blog */
+.blog-date {
+  font-size: 0.85rem;
+  color: var(--red);
+  margin-bottom: 10px;
+  display: block;
+  font-weight: 600;
+}
+
+/* Footer */
+footer {
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 60px 0 30px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-links h4 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--red);
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.social-icons a:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+.copyright-bar {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+#backToTop {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+#backToTop:hover {
+  background: var(--blue);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+}
+
+/* Markdown Content */
+.markdown-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px 60px 20px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.detail-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.detail-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.detail-card:first-child {
+  grid-column: 1 / -1;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.2));
+  padding: 50px 30px;
+}
+
+.detail-card h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  border: none;
+}
+
+.detail-card h2 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: var(--blue);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+
+.detail-card h3 {
+  font-size: 1.2rem;
+  color: var(--cyan);
+  margin-top: 20px;
+}
+
+.detail-card p {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.detail-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 20px 0;
+  border: 1px solid var(--border);
+}
+
+.detail-card ul {
+  padding-left: 20px;
+}
+
+/* CV Mode */
+.cv-mode .detail-card img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 25px auto;
+  border: 3px solid var(--blue);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.markdown-content .detail-card:first-child ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0 0;
+}
+
+.markdown-content .detail-card:first-child li {
+  display: inline-block;
+  margin: 0 15px;
+  font-size: 1.1rem;
+  color: var(--blue);
+}
+
+/* ========================================= */
+/* RESPONSIVE / MOBILE OPTIMIZATION SECTIONS */
+/* ========================================= */
+
+/* Mobile Menu Button (Hidden on Desktop) */
+.mobile-menu-btn {
+  display: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+/* Tablet & Large Phones */
+@media (max-width: 768px) {
+
+  /* Show the hamburger button */
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  /* Transform Nav Links into a Dropdown */
+  .nav-links {
+    display: none;
+    /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    /* Push it right below the header */
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.95);
+    /* Dark background */
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 30px 0;
+    gap: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* The class JS will add to show the menu */
+  .nav-links.active {
+    display: flex;
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  /* Animation for smooth opening */
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Adjustments for other elements */
+  .section-padding {
+    padding: 50px 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .hero {
+    height: 60vh;
+    min-height: 400px;
+  }
+
+  .btn-outline {
+    margin-left: 0;
+    margin-top: 15px;
+    display: inline-block;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .copyright-bar {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .markdown-content {
+    padding: 30px 15px;
+    gap: 20px;
+  }
+
+  .detail-card {
+    padding: 25px;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .section-padding {
+    padding: 40px 0;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .card {
+    padding: 25px 20px;
+  }
+
+  .detail-card h1 {
+    font-size: 1.8rem;
+  }
+
+  /* Ensure menu text is large enough on small screens */
+  .nav-links a {
+    font-size: 1.2rem;
+  }
+
+  footer {
+    padding: 40px 0 20px;
+  }
+}
+
+/* ========================= */
+/* PAGE TRANSITIONS     */
+/* ========================= */
+
+/* 1. Page Entry Animation */
+body {
+  /* Animates the page in when it loads */
+  animation: fadeInPage 0.5s ease-out forwards;
+}
+
+@keyframes fadeInPage {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+    /* Slide up slightly */
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 2. Page Exit State (Added via JS) */
+/* Page Exit State - Ultra Fast */
+body.fade-out {
+  opacity: 0;
+  /* No transform here, just pure fade for speed */
+  transition: opacity 0.1s ease-out;
+  pointer-events: none;
+}

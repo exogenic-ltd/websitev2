@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const team = await getCollection('team');
+  return team.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={`${entry.data.name} - ExoGenic Team`}>
+    <section class="section-padding">
+        <div class="container">
+            <div style="margin-bottom: 30px;">
+                <a href="/team" style="color: #3b82f6; text-decoration: none;">&larr; Back to Team</a>
+            </div>
+            
+            <div class="detail-card glass cv-mode" style="padding: 40px; max-width: 850px; margin: 0 auto 40px auto;">
+                <div style="display:flex; flex-wrap:wrap; gap:30px; align-items: flex-start;">
+                    {entry.data.image && 
+                        <img src={entry.data.image} alt={entry.data.name} class="profile-large" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 3px solid #3b82f6;" />
+                    }
+                    <div style="flex:1;">
+                         <h1 style="font-size: 2.5rem; margin-bottom: 10px;" class="animate-gradient-text">{entry.data.name}</h1>
+                         <h3 style="color: #3b82f6; margin-bottom: 15px;">{entry.data.role}</h3>
+                         
+                         <div class="social-links" style="margin-bottom: 20px;">
+                             {entry.data.email && <p><i class="fa-solid fa-envelope"></i> {entry.data.email}</p>}
+                             {entry.data.linkedin && <p><i class="fa-brands fa-linkedin"></i> <a href={entry.data.linkedin} target="_blank">{entry.data.linkedin}</a></p>}
+                             {entry.data.orcid && <p><i class="fa-solid fa-book"></i> ORCID: {entry.data.orcid}</p>}
+                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="markdown-content" style="margin-top: 30px;">
+                <Content />
+            </div>
+            <script src="../../scripts/card-view.js"></script>
+        </div>
+    </section>
+</BaseLayout>

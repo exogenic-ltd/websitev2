@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+const recentProjects = projects.sort((a, b) => (a.data.order || 99) - (b.data.order || 99)).slice(0, 3); // Just show first 3 for now
+
+const blogs = await getCollection('blog');
+const recentBlogs = blogs.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+
+const pageTitle = "ExoGenic - Redefining Human Potential";
+---
+
+<BaseLayout title={pageTitle}>
+    <section class="hero">
+        <div class="hero-carousel">
+            <!-- Ensure these images exist in public/assets/images/home/ -->
+            <div class="slide active" style="background-image: url('/assets/images/home/group.jpg');"></div>
+            <div class="slide" style="background-image: url('/assets/images/home/lecture.jpg');"></div>
+            <div class="slide" style="background-image: url('/assets/images/home/demo.jpg');"></div>
+            <div class="slide" style="background-image: url('/assets/images/home/schematic.jpg');"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1>Redefining <span class="animate-gradient-text">Human Potential</span></h1>
+            <p>We are building the future of Med-Tech. Empowering lives through cutting-edge technologies and bionic innovations.</p>
+            <div>
+                <a href="/about" class="btn btn-primary">Partner with Us</a>
+                <a href="/projects" class="btn btn-outline">Our Innovations</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2>Driving Innovation, <span class="text-gradient">Delivering Impact</span></h2>
+            </div>
+            
+            <div class="grid-3">
+                <div class="card glass">
+                    <h3 style="margin-bottom: 15px;">Vision</h3>
+                    <p>To become Sri Lanka's first ever state-of-the-art bionics development group, translating the research into real world products and devices.</p>
+                </div>
+
+                <div class="card glass">
+                    <h3 style="margin-bottom: 15px;">Mission</h3>
+                    <p>Utilizing the engineering and scientific prowess of the strong and enthusiastic team to generate maximum value and customer satisfaction with a unique human touch.</p>
+                </div>
+
+                <div class="card glass">
+                    <h3 style="margin-bottom: 15px;">Values</h3>
+                    <p>We are guided by innovation with purpose, accessibility for all, integrity in our work, collaboration with our partners, and a commitment to excellence in everything we create.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" style="background: rgba(255,255,255,0.02);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2>Featured <span class="text-gradient">Projects</span></h2>
+                <p style="color: var(--text-muted);">Pioneering solutions for a better tomorrow.</p>
+            </div>
+
+            <div class="grid-3">
+                {recentProjects.map(project => (
+                    <div class="card glass clickable" onclick={`window.location.href='/projects/${project.slug}'`}>
+                        {project.data.image && <img src={project.data.image} alt={project.data.title} style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;" />}
+
+                        <h3>{project.data.title}</h3>
+                        <p>{project.data.description}</p>
+                    </div>
+                ))}
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="/projects" class="btn btn-outline">Explore All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <h2>Latest <span class="text-gradient">Insights</span></h2>
+                <p style="color: var(--text-muted);">Updates from our engineering team.</p>
+            </div>
+
+            <div class="grid-3">
+                {recentBlogs.map(post => (
+                    <article class="card glass clickable" onclick={`window.location.href='/blog/${post.slug}'`}>
+                        {post.data.image && <img src={post.data.image} alt={post.data.title} style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 20px;" />}
+                        <span class="blog-date">{post.data.date.toISOString().split('T')[0]}</span>
+                        <h3>{post.data.title}</h3>
+                        <p>{post.data.description}</p>
+                    </article>
+                ))}
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="/blog" class="btn btn-outline">Read the Blog</a>
+            </div>
+        </div>
+    </section>
+</BaseLayout>

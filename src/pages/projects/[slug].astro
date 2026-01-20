@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<BaseLayout title={`${entry.data.title} - ExoGenic Projects`}>
+    <section class="section-padding">
+        <div class="container">
+            <div style="margin-bottom: 30px;">
+                <a href="/projects" style="color: #3b82f6; text-decoration: none;">&larr; Back to Projects</a>
+            </div>
+            
+            <div class="detail-card glass" style="padding: 40px;">
+                <h1 style="font-size: 2.5rem; margin-bottom: 20px;" class="animate-gradient-text">{entry.data.title}</h1>
+            </div>
+
+            <div class="markdown-content" style="margin-top: 30px;">
+                <Content />
+            </div>
+            <script src="../../scripts/card-view.js"></script>
+        </div>
+    </section>
+</BaseLayout>
+
+<style is:global>
+    /* Add basic markdown styles if not present in global css */
+    .markdown-content h2 { margin-top: 2rem; margin-bottom: 1rem; color: #fff; }
+    .markdown-content p { margin-bottom: 1rem; line-height: 1.6; color: #cbd5e1; }
+    .markdown-content ul { padding-left: 20px; margin-bottom: 1rem; }
+    .markdown-content li { margin-bottom: 0.5rem; }
+    .markdown-content li { margin-bottom: 0.5rem; }
+</style>

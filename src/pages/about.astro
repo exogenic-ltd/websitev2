@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const pageTitle = "About Us - ExoGenic";
+---
+
+<BaseLayout title={pageTitle}>
+    <section class="section-padding">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h1>About <span class="animate-gradient-text">ExoGenic</span></h1>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                    We are a team of passionate engineers and researchers dedicated to redefining human potential through bionics.
+                </p>
+            </div>
+
+            <div class="detail-card glass" style="padding: 40px;">
+                <h2>Our Story</h2>
+                <p>
+                    Founded in late 2024, ExoGenic emerged from the Bionics Laboratory at the University of Moratuwa. 
+                    What started as a research group exploring advanced prosthetics has evolved into a fully-fledged 
+                    organization aiming to bridge the gap between academic research and commercial viable medical devices.
+                </p>
+
+                <h2 style="margin-top: 30px;">What We Do</h2>
+                <p>
+                    Our primary focus is on <strong>trans-radial prosthetics</strong>, <strong>cardiac monitoring systems</strong>, 
+                    and <strong>assistive robotics</strong>. We believe that technology should be accessible, affordable, 
+                    and aesthetically pleasing.
+                </p>
+
+                <h2 style="margin-top: 30px;">Contact Us</h2>
+                <div class="grid-3" style="text-align: center; margin-top: 20px;">
+                    <div>
+                        <i class="fa-solid fa-location-dot" style="font-size: 2rem; color: #3b82f6; margin-bottom: 10px;"></i>
+                        <p>Colombo, Sri Lanka</p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-envelope" style="font-size: 2rem; color: #3b82f6; margin-bottom: 10px;"></i>
+                        <p>info@exogenic.lk</p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-phone" style="font-size: 2rem; color: #3b82f6; margin-bottom: 10px;"></i>
+                        <p>+94 77 123 4567</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</BaseLayout>

@@ -14,3 +14,13 @@ We are proud to announce that our Cardiac Monitor system took home the gold at t
 - date: Aug 20, 2024
 - link: #
 A deep dive into Electromyography (EMG) and how we use electrical signals from muscles to control hardware.
+
+## Biomechanics of Hand
+- date: Jan 04, 2025
+- link: content/blog/biomechanics-of-hand.md
+Understanding the biomechanics of human hand
+
+## Prosthetic Devices
+- date: Jan 04, 2025
+- link: content/blog/prosthetic-devices.md
+Trans-radial Prosthesis Overview
