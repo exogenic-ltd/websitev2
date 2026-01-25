@@ -1,0 +1,156 @@
+---
+export const prerender = false;
+
+import DashboardLayout from "../../layouts/DashboardLayout.astro";
+
+const user = Astro.locals.user;
+---
+
+<DashboardLayout title="Overview" activeTab="dashboard">
+    <div class="welcome-banner">
+        <h1>
+            Welcome back, <span class="highlight"
+                >{user?.username || "Team Member"}</span
+            >!
+        </h1>
+        <p>Here's what's happening with your projects today.</p>
+    </div>
+
+    <div class="cards-grid" style="margin-top: 32px;">
+        <div class="dashboard-card stat-card">
+            <div class="stat-icon blue">
+                <i class="fas fa-tasks"></i>
+            </div>
+            <div class="stat-info">
+                <h3 id="totalTasks">--</h3>
+                <span>Total Tasks</span>
+            </div>
+        </div>
+
+        <div class="dashboard-card stat-card">
+            <div class="stat-icon green">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="stat-info">
+                <h3 id="completedTasks">--</h3>
+                <span>Completed</span>
+            </div>
+        </div>
+
+        <div class="dashboard-card stat-card">
+            <div class="stat-icon purple">
+                <i class="fas fa-spinner"></i>
+            </div>
+            <div class="stat-info">
+                <h3 id="inProgressTasks">--</h3>
+                <span>In Progress</span>
+            </div>
+        </div>
+
+        <div class="dashboard-card stat-card">
+            <div class="stat-icon red">
+                <i class="fas fa-clock"></i>
+            </div>
+            <div class="stat-info">
+                <h3 id="todoTasks">--</h3>
+                <span>To Do</span>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 32px;">
+        <a href="/dashboard/tasks" class="quick-action-btn">
+            <i class="fas fa-arrow-right"></i> Go to Task Board
+        </a>
+    </div>
+
+    <Fragment slot="head">
+        <style>
+            .welcome-banner {
+                background: linear-gradient(
+                    135deg,
+                    rgba(59, 130, 246, 0.15),
+                    rgba(139, 92, 246, 0.1)
+                );
+                border: 1px solid rgba(59, 130, 246, 0.3);
+                border-radius: 16px;
+                padding: 32px;
+            }
+
+            .welcome-banner h1 {
+                font-size: 1.75rem;
+                margin-bottom: 8px;
+            }
+
+            .welcome-banner .highlight {
+                background: linear-gradient(to right, #3b82f6, #8b5cf6);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .welcome-banner p {
+                color: #9ca3af;
+            }
+
+            .quick-action-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 12px 24px;
+                background: linear-gradient(135deg, #3b82f6, #2563eb);
+                border-radius: 10px;
+                color: white;
+                text-decoration: none;
+                font-weight: 500;
+                transition: all 0.2s;
+            }
+
+            .quick-action-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            }
+        </style>
+    </Fragment>
+
+    <Fragment slot="scripts">
+        <script>
+            interface Task {
+                status: "todo" | "in-progress" | "done";
+            }
+
+            // Fetch task stats
+            async function loadStats() {
+                try {
+                    const res = await fetch("/api/tasks");
+                    const data = await res.json();
+                    const tasks: Task[] = data.tasks || [];
+
+                    const totalEl = document.getElementById("totalTasks");
+                    const completedEl =
+                        document.getElementById("completedTasks");
+                    const inProgressEl =
+                        document.getElementById("inProgressTasks");
+                    const todoEl = document.getElementById("todoTasks");
+
+                    if (totalEl) totalEl.textContent = tasks.length.toString();
+                    if (completedEl)
+                        completedEl.textContent = tasks
+                            .filter((t) => t.status === "done")
+                            .length.toString();
+                    if (inProgressEl)
+                        inProgressEl.textContent = tasks
+                            .filter((t) => t.status === "in-progress")
+                            .length.toString();
+                    if (todoEl)
+                        todoEl.textContent = tasks
+                            .filter((t) => t.status === "todo")
+                            .length.toString();
+                } catch (e) {
+                    console.error("Failed to load stats:", e);
+                }
+            }
+            loadStats();
+        </script>
+    </Fragment>
+</DashboardLayout>

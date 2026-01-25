@@ -9,6 +9,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.16.11"
+    "@astrojs/vercel": "^9.0.4",
+    "@upstash/redis": "^1.36.1",
+    "astro": "^5.16.11",
+    "bcryptjs": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.10"
   }
 }

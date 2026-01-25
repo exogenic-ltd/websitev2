@@ -1,12 +1,14 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+export const prerender = true;
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
-  }));
+    const posts = await getCollection("blog");
+    return posts.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
 }
 
 const { entry } = Astro.props;
@@ -17,18 +19,33 @@ const { Content } = await entry.render();
     <section class="section-padding">
         <div class="container">
             <div style="margin-bottom: 30px;">
-                <a href="/blog" style="color: #3b82f6; text-decoration: none;">&larr; Back to Blog</a>
+                <a href="/blog" style="color: #3b82f6; text-decoration: none;"
+                    >&larr; Back to Blog</a
+                >
             </div>
-            
+
             <article class="detail-card glass" style="padding: 40px;">
                 <div style="margin-bottom: 20px; color: var(--text-muted);">
-                    <span>{entry.data.date.toISOString().split('T')[0]}</span>
+                    <span>{entry.data.date.toISOString().split("T")[0]}</span>
                     <span style="margin: 0 10px;">•</span>
                     <span>{entry.data.author}</span>
                 </div>
-                <h1 style="font-size: 2.5rem; margin-bottom: 30px;" class="animate-gradient-text">{entry.data.title}</h1>
-                
-                {entry.data.image && <img src={entry.data.image} alt={entry.data.title} style="width:100%; max-height: 500px; object-fit: cover; border-radius:10px; margin-bottom:30px;" />}
+                <h1
+                    style="font-size: 2.5rem; margin-bottom: 30px;"
+                    class="animate-gradient-text"
+                >
+                    {entry.data.title}
+                </h1>
+
+                {
+                    entry.data.image && (
+                        <img
+                            src={entry.data.image}
+                            alt={entry.data.title}
+                            style="width:100%; max-height: 500px; object-fit: cover; border-radius:10px; margin-bottom:30px;"
+                        />
+                    )
+                }
             </article>
 
             <div class="markdown-content" style="margin-top: 30px;">
