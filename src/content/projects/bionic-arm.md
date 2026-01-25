@@ -1,8 +1,8 @@
 ---
-title: "Bionic Arm V2"
-icon: "fa-solid fa-microscope"
+title: "Dexios"
+icon: "fa-solid fa-hand"
 order: 1
-image: "/assets/images/bionic-arm-v2.jpg"
+image: "/assets/images/home/schematic.jpg"
 description: "A cost-effective prosthetic solution utilizing EMG sensors to interpret muscle movements for intuitive grip control."
 ---
 
@@ -52,7 +52,7 @@ All structural components are 3D printed using **carbon fiber-reinforced PLA**, 
 ## Vision & Future
 > "The goal isn't just to replace a limb, but to restore the sensation of touch and the freedom of movement." — **Harindu Bandara, CEO**
 
-**V2 Roadmap:**
+**Roadmap:**
 - AI-powered gesture prediction.
 - Wireless smartphone connectivity.
 - Integrated temperature sensors.

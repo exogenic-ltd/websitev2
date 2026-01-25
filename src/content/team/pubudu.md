@@ -8,6 +8,8 @@ title: "Dr. Pubudu Ranaweera"
 email: "pubudur@uom.lk"
 ---
 
+**Cofounder**
+
 Senior Lecturer
 Specialist in Biomechanics, Biorobotics, Prosthetics, and Computer Aided Engineering (FEA/CFD).
 
