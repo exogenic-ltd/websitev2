@@ -8,6 +8,8 @@ title: "Prof. Ruwan Gopura"
 email: "gopurar@uom.lk"
 ---
 
+**Cofounder**
+
 Senior Professor & Dean (FGS)
 Department of Mechanical Engineering, University of Moratuwa. Expert in Robotics and Biomechatronics.
 

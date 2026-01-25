@@ -8,6 +8,8 @@ title: "Kulunu Weerasoory"
 email: "kulunu@ieee.org"
 ---
 
+**Cofounder**
+
 PhD Candidate & Researcher
 Mechanical Engineering graduate specializing in Biomechanics, Robotics, and Control Systems. Interested in medical technology and data-driven engineering solutions.
 

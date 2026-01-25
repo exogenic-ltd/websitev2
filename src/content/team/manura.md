@@ -1,6 +1,6 @@
 ---
 name: "Mr. Manura De Silva"
-role: "Cheif Operating Officer"
+role: "Chief Operating Officer"
 image: "/assets/images/team/manura.jpg"
 order: 2
 category: "Directors"
@@ -9,7 +9,7 @@ email: "manurajithmal@gmail.com"
 linkedin: "https://www.linkedin.com/in/manurajithmal"
 ---
 
-**Founder and CEO/CTO**
+**Founder & COO**
 
 Passionate graduate researcher with interdisciplinary experience in Biomechanics and Rehabilitation Robotics. Seeking opportunities at the intersection of Engineering, Healthcare, and Sports Science.
 

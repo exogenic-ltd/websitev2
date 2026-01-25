@@ -1,6 +1,6 @@
 ---
 name: "Mr. Harindu Bandara"
-role: "Cheif Executive Officer"
+role: "Chief Executive Officer"
 image: "/assets/images/team/harindu.jpg"
 order: 1
 category: "Directors"
@@ -10,9 +10,9 @@ linkedin: "https://www.linkedin.com/in/harindu-bandara"
 orcid: "0009-0009-3360-8980"
 ---
 
-**Founder and CEO/CTO**
+**Founder & CEO/CTO**
 
-Mechanical engineer seeking opportunities to further expand knowledge and skills in R&D related to Robotics and Bioengineering. Currently an M.Sc. student at TUM specializing in Mechatronics, Bionics and Robotics.
+Mechanical engineer with a passion for advancing Robotics and Bioengineering through R&D innovation. Currently pursuing M.Sc. in Mechatronics, Robotics and Biomechanical Engineering at the Technical University of Munich (TUM), Germany — one of Europe's leading programs in advanced robotics and human-machine systems.
 
 ---
 
